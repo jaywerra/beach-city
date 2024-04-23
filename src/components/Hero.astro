@@ -1,5 +1,116 @@
 <section class="hero">
     <div class="container">
-        <h1>“No matter how good you get, you can always get better, and that's the exciting part!”</h1>
+        <h1 class="quote-header">
+            “No matter how good you get, you can always get better, and that's the exciting part!”
+        </h1>
+        <p class="quote-author">
+            - Tiger Woods
+        </p>
+        <a href="#" class="button button--blue">
+            Try Our Member For A Day Pass for $49
+        </a>
+        <div class="hero-ribbon">
+            <h2>Already A Practice Member?</h2>
+            <a href="#" class="button button--white">
+                Book Your Next Practice Session
+            </a>
+        </div>
     </div>
 </section>
+
+<style>
+    .hero {
+        position: relative;
+        height: 90vh;
+        width: 100vw;
+        background: #111;
+
+        .container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        h1 {
+            margin: 0 auto;
+            max-width: 960px;
+            color: var(--white);
+            font-family: "proxima-nova-extra-condensed", sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.15;
+            text-align: center;
+            text-transform: uppercase;
+
+            @media (min-width: 360px) {
+                font-size: 40px;
+            }
+
+            @media (min-width: 500px) {
+                font-size: 48px;
+            }
+            @media (min-width: 750px) {
+                font-size: 56px;
+            }
+            @media (min-width: 750px) {
+                max-width: 720px;
+            }
+            @media (min-width: 1200px) {
+                max-width: 1160px;
+                font-size: 64px;
+            }
+        }
+
+        .quote-author {
+            margin: 5px auto 40px;
+            color: var(--white);
+            font-family: "proxima-nova-extra-condensed", sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+
+            @media (min-width: 1200px) {
+                font-size: 30px;
+            }
+        }
+
+        .hero-ribbon {
+            position: absolute;
+            left: 50%;
+            top: calc(90vh - 78px);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 1600px;
+            padding: 48px 64px;
+            width: 96%;
+            background: var(--blue100);
+            border-radius: 2px;
+            transform: translateX(-50%);
+
+            @media (min-width: 900px) {
+                flex-direction: row;
+            }
+
+            h2 {
+                margin: 0 auto 24px;
+                color: var(--white);
+                font-family: "proxima-nova-extra-condensed", sans-serif;
+                font-size: 40px;
+                font-weight: 600;
+                line-height: 1.15;
+                text-align: center;
+                text-transform: uppercase;
+
+                @media (min-width: 900px) {
+                    margin: 0;
+                    text-align: left;
+                }
+            }
+        }
+    }
+</style>

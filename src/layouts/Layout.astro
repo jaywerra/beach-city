@@ -84,17 +84,30 @@ import Header from '../components/Header.astro';
 
 	.button {
 		display: inline-block;
-		padding: 12px 24px;
+		padding: 10px 20px;
 		border-radius: 2px;
-		font-family: proxima-nova-condensed, georgia;
-		font-size: 19px;
+		font-family: "proxima-nova-extra-condensed", georgia;
+		font-size: 18px;
 		font-weight: 700;
-		letter-spacing: 0.02em;
 		text-transform: uppercase;
+
+		@media (min-width: 370px) {
+			font-size: 20px;
+		}
+
+		@media (min-width: 400px) {
+			padding: 12px 24px;
+			font-size: 21px;
+		}
 
 		&.button--blue {
 			background: var(--blue100);
 			color: var(--white);
+		}
+
+		&.button--white {
+			background: var(--white);
+			color: var(--blue100);
 		}
 	}
 </style>

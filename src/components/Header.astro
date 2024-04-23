@@ -51,7 +51,12 @@
 
 <style>
     .header {
+        position: fixed;
+        top: 0;
+        left: 0;
         padding: 16px 0;
+        width: 100vw;
+        z-index: 10;
 
         .container {
             display: flex;
@@ -82,20 +87,11 @@
 
                 a {
                     color: var(--white);
-                    font-family: "proxima-nova-condensed", sans-serif;
-                    font-size: 19px;
+                    font-family: "proxima-nova-extra-condensed", sans-serif;
+                    font-size: 21px;
                     font-weight: 600;
-                    letter-spacing: 0.02em;
+                    letter-spacing: 0.025em;
                     text-transform: uppercase;
-
-                    @media (min-width: 1150px) {
-                        font-size: 16px;
-                    }
-
-                    @media (min-width: 1350px) {
-                        font-size: 19px;
-                    }
-
                     transition: linear 0.25s;
 
                     &:hover {
@@ -115,8 +111,8 @@
 
                 a:not(.button) {
                     color: var(--white);
-                    font-family: "proxima-nova-condensed", sans-serif;
-                    font-size: 20px;
+                    font-family: "proxima-nova-extra-condensed", sans-serif;
+                    font-size: 21px;
                     font-weight: 700;
                     letter-spacing: 0.02em;
                 }
@@ -125,8 +121,13 @@
     }
     .logo {
         display: inline-block;
-        height: 60px;
-        width: 150px;
+        height: 50px;
+        width: 130px;
         background: var(--blue100);
+
+        @media (min-width: 500px) {
+            height: 60px;
+            width: 150px;
+        }
     }
 </style>
