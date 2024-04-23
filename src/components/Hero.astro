@@ -37,13 +37,17 @@
             max-width: 960px;
             color: var(--white);
             font-family: "proxima-nova-extra-condensed", sans-serif;
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 600;
             line-height: 1.15;
             text-align: center;
             text-transform: uppercase;
 
             @media (min-width: 360px) {
+                font-size: 36px;
+            }
+
+            @media (min-width: 400px) {
                 font-size: 40px;
             }
 
@@ -78,7 +82,7 @@
 
         .hero-ribbon {
             position: absolute;
-            left: 50%;
+            left: 0;
             top: calc(90vh - 78px);
             display: flex;
             align-items: center;
@@ -86,14 +90,20 @@
             justify-content: space-between;
             margin: 0 auto;
             max-width: 1600px;
-            padding: 48px 64px;
-            width: 96%;
+            padding: 40px 20px;
+            width: 100vw;
             background: var(--blue100);
             border-radius: 2px;
-            transform: translateX(-50%);
+
+            @media (min-width: 550px) {
+                padding: 48px 64px;
+            }
 
             @media (min-width: 900px) {
+                left: 50%;
                 flex-direction: row;
+                width: 96%;
+                transform: translateX(-50%);
             }
 
             h2 {
