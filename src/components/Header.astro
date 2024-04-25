@@ -55,7 +55,7 @@
         top: 0;
         left: 0;
         padding: 16px 0;
-        width: 100vw;
+        width: 100%;
         z-index: 10;
 
         .container {
@@ -110,11 +110,16 @@
                 padding: 0;
 
                 a:not(.button) {
+                    display: none;
                     color: var(--white);
                     font-family: "proxima-nova-extra-condensed", sans-serif;
                     font-size: 21px;
                     font-weight: 700;
                     letter-spacing: 0.02em;
+
+                    @media (min-width: 750px) {
+                        display: inline-block;
+                    }
                 }
             }
         }

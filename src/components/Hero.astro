@@ -22,7 +22,6 @@
     .hero {
         position: relative;
         height: 90vh;
-        width: 100vw;
         background: #111;
 
         .container {
@@ -88,37 +87,55 @@
             align-items: center;
             flex-direction: column;
             justify-content: space-between;
-            margin: 0 16px;
-            max-width: 1600px;
-            padding: 40px 20px;
-            width: 100vw;
+            padding: 32px 16px;
+            width: 100%;
             background: var(--blue100);
             border-radius: 2px;
 
+            @media (min-width: 400px) {
+                padding: 40px 20px;
+            }
+
             @media (min-width: 550px) {
-                padding: 48px 64px;
+                padding: 40px 24px;
+            }
+
+            @media (min-width: 750px) {
+                left: 50%;
+                flex-direction: row;
+                max-width: 1600px;
+                width: 98%;
+                transform: translateX(-50%);
             }
 
             @media (min-width: 900px) {
-                left: 50%;
-                flex-direction: row;
-                width: 96%;
-                transform: translateX(-50%);
+                padding: 48px 64px;
             }
 
             h2 {
                 margin: 0 auto 24px;
                 color: var(--white);
                 font-family: "proxima-nova-extra-condensed", sans-serif;
-                font-size: 40px;
+                font-size: 32px;
                 font-weight: 600;
                 line-height: 1.15;
                 text-align: center;
                 text-transform: uppercase;
 
-                @media (min-width: 900px) {
-                    margin: 0;
+                @media (min-width: 400px) {
+                    font-size: 36px;
+                }
+
+                @media (min-width: 550px) {
                     text-align: left;
+                }
+
+                @media (min-width: 750px) {
+                    margin: 0;
+                }
+
+                @media (min-width: 900px) {
+                    font-size: 40px;
                 }
             }
         }

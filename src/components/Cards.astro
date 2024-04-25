@@ -106,7 +106,7 @@
         background: var(--white);
 
         @media (min-width: 750px) {
-            padding: 180px 64px 96px;
+            padding: 180px 16px 96px;
         }
 
         @media (min-width: 900px) {
@@ -123,21 +123,33 @@
             margin: 0 0 8px;
             color: var(--black);
             font-family: "proxima-nova-extra-condensed", sans-serif;
-            font-size: 56px;
+            font-size: 40px;
             font-weight: 600;
             letter-spacing: -1px;
             line-height: 1.15;
             text-transform: uppercase;
+
+            @media (min-width: 750px) {
+                font-size: 56px;
+            }
         }
 
         .cards-summary {
-            margin-bottom: 54px;
+            margin-bottom: 32px;
+
+            @media (min-width: 750px) {
+                margin-bottom: 54px;
+            }
 
             p {
                 max-width: 500px;
                 margin-top: 0;
-                font-size: 28px;
-                line-height: 1.5;
+                font-size: 24px;
+                line-height: 1.35;
+
+                @media (min-width: 750px) {
+                    font-size: 28px;
+                }
             }
         }
 
@@ -147,8 +159,17 @@
         }
 
         .cards-grid-row-half {
-            gap: 64px;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
+            gap: 24px;
+
+            @media (min-width: 850px) {
+                gap: 40px;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media (min-width: 1150px) {
+                gap: 64px;
+            }
         }
 
         .cards-grid-row-full {
@@ -158,13 +179,23 @@
         .card {
             &.card-fullwidth {
                 display: flex;
-                flex-direction: row-reverse;
-                align-items: center;
-                gap: 64px;
+                flex-direction: column;
+
+                @media (min-width: 1150px) {
+                    gap: 40px;
+                }
+
+                @media (min-width: 1150px) {
+                    align-items: center;
+                    flex-direction: row-reverse;
+                    gap: 64px;
+                }
 
                 .card-image,
                 .card-copy {
-                    width: 50%;
+                    @media (min-width: 1150px) {
+                        width: 50%;
+                    }
                 }
 
                 .card-image {
@@ -192,7 +223,11 @@
                 overflow: hidden;
             }
             .card-copy {
-                padding: 20px 0 64px;
+                padding: 20px 0 32px;
+
+                @media (min-width: 850px) {
+                    padding: 20px 0 64px;
+                }
 
                 h2 {
                     font-family: "proxima-nova-extra-condensed", sans-serif;
@@ -208,7 +243,11 @@
                     list-style: disc;
 
                     li {
-                        font-size: 20px;
+                        font-size: 18px;
+
+                        @media (min-width: 750px) {
+                            font-size: 20px;
+                        }
                     }
                 }
 
@@ -219,9 +258,13 @@
 
             p {
                 margin-bottom: 0;
-                max-width: 620px;
-                font-size: 20px;
+                font-size: 18px;
                 text-wrap: pretty;
+
+                @media (min-width: 750px) {
+                    max-width: 620px;
+                    font-size: 20px;
+                }
             }
 
             .card-pill {
