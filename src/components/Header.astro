@@ -56,6 +56,8 @@
         left: 0;
         padding: 16px 0;
         width: 100%;
+        background-color: transparent;
+        transition: linear 0.25s;
         z-index: 10;
 
         .container {
@@ -99,6 +101,18 @@
                     }
                 }
             }
+
+            &.header-scrolled {
+                ul {
+                    a {
+                        color: var(--black);
+
+                        &:hover {
+                            color: var(--blue100);
+                        }
+                    }
+                }
+            }
         }
 
         .header-controls {
@@ -136,3 +150,45 @@
         }
     }
 </style>
+
+<script>
+    import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import Lenis from "lenis";
+    gsap.registerPlugin(ScrollTrigger) 
+
+    const header = document.querySelector(".header");
+    const headerLinks = gsap.utils.toArray(".header-nav li a");
+    const headerTimeline = gsap.timeline();
+
+    // Initialize Lenis
+    const lenis = new Lenis({
+        lerp: 0.1,
+        smooth: true,
+        direction: 'vertical'
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Update header to white on scroll
+    gsap.to(header, {
+        backgroundColor: "#FFF",
+        color: "#000",
+        scrollTrigger: {
+            start: "top+=50",
+            end: "bottom top",
+            toggleActions: "play none none reverse",
+            toggleClass: {
+                className: "header-scrolled",
+                targets: ".header-nav",
+            },
+        },
+        duration: 0.3
+    });
+
+</script>

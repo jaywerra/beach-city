@@ -13,6 +13,8 @@
     "@fontsource/ibm-plex-sans": "^5.0.20",
     "@fontsource/ibm-plex-sans-condensed": "^5.0.13",
     "@fontsource/twinkle-star": "^5.0.20",
-    "astro": "^4.6.3"
+    "astro": "^4.6.3",
+    "gsap": "^3.12.5",
+    "lenis": "^1.0.44"
   }
 }
