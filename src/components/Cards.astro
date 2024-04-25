@@ -8,6 +8,95 @@
                 <p>You have <strong>three</strong> great options and <strong>three</strong> great instructors to choose from.</p>
             </div>
         </div>
+        <div class="cards-grid">
+            <div class="cards-grid-row-half">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                    </div>
+                    <div class="card-copy">
+                        <h2>
+                            "Member For A Day Pass" Demo
+                        </h2>
+                        <p class="card-pill">
+                            $39
+                        </p>
+                        <ul>
+                            <li>
+                                10-minute Tour (Facility/Technology)
+                            </li>
+                            <li>
+                                30-minute Practice Session
+                            </li>
+                            <li>
+                                10-minute Discuss Membership/Lesson Options
+                            </li>
+                        </ul>
+                        <a href="#" class="button button--blue">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                    </div>
+                    <div class="card-copy">
+                        <h2>
+                            “New Student” 60min Lesson/Assessment
+                        </h2>
+                        <p class="card-pill">
+                            $149
+                        </p>
+                        <p>
+                            Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!
+                        </p>
+                        <a href="#" class="button button--blue">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="cards-grid-row-full">
+                <div class="card card-fullwidth">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                    </div>
+                    <div class="card-copy">
+                        <h2>
+                            Lesson with Devan Bonebrake Host of GolfFix on GolfPass
+                        </h2>
+                        <p class="card-pill">
+                            $300
+                        </p>
+                        <p>
+                            Prefer to have a professional guide on your golf journey? Coach Devan understands your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!
+                        </p>
+                        <h4>What you get</h4>
+                        <ul>
+                            <li>
+                                Best One on One Instruction in SoCal
+                            </li>
+                            <li>
+                                Full Access: Trackman Launch Monitor/PuttView Putting System
+                            </li>
+                            <li>
+                                Voiceover video Analysis
+                            </li>
+                            <li>
+                                Take home instruction/training
+                            </li>
+                            <li>
+                                60 Min Session
+                            </li>
+                        </ul>
+                        <a href="#" class="button button--blue">
+                            Book With Devan
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -42,10 +131,110 @@
         }
 
         .cards-summary {
+            margin-bottom: 54px;
+
             p {
+                max-width: 500px;
                 margin-top: 0;
-                font-size: 24px;
+                font-size: 28px;
                 line-height: 1.5;
+            }
+        }
+
+        .cards-grid-row-half,
+        .cards-grid-row-full {
+            display: grid;
+        }
+
+        .cards-grid-row-half {
+            gap: 64px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .cards-grid-row-full {
+            grid-template-columns: 1fr;
+        }
+
+        .card {
+            &.card-fullwidth {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                gap: 64px;
+
+                .card-image,
+                .card-copy {
+                    width: 50%;
+                }
+
+                .card-image {
+                    height: 100%;
+
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                h4 {
+                    margin: 24px 0 0;
+                    color: var(--blue100);
+                    font-size: 20px;
+                    font-weight: 700;
+                    line-height: 1;
+                }
+
+                ul {
+                    margin-top: 12px;
+                }
+            }
+            .card-image {
+                border-radius: 2px;
+                overflow: hidden;
+            }
+            .card-copy {
+                padding: 20px 0 64px;
+
+                h2 {
+                    font-family: "proxima-nova-extra-condensed", sans-serif;
+                    font-size: 32px;
+                    font-weight: 600;
+                    letter-spacing: -1px;
+                    line-height: 1.15;
+                    text-transform: uppercase;
+                }
+
+                ul {
+                    padding-left: 20px;
+                    list-style: disc;
+
+                    li {
+                        font-size: 20px;
+                    }
+                }
+
+                .button {
+                    margin-top: 32px;
+                }
+            }
+
+            p {
+                margin-bottom: 0;
+                max-width: 620px;
+                font-size: 20px;
+                text-wrap: pretty;
+            }
+
+            .card-pill {
+                display: inline-block;
+                margin: 3px 0 0;
+                padding: 3px 14px;
+                background: var(--black);
+                border-radius: 4px;
+                color: var(--white);
+                font-family: "proxima-nova-extra-condensed", sans-serif;
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 1;
             }
         }
     }
