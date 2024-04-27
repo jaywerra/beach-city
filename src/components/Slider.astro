@@ -171,7 +171,16 @@
                 }
             }
         }
+
+        .splide__sr {
+            display: none !important;
+            position: absolute;
+            left: -99999em;
+            visibility: hidden;
+        }
     }
+
+
 
     .my-slider-progress {
         position: absolute;
@@ -200,9 +209,10 @@
         perPage: 1,
         arrows: false,
         pagination: false,
-        gap: "1rem",
+        // gap: "1rem",
         breakpoints: {
             750: {
+                // fixedHeight: "500px",
                 padding: {
                     left: "0",
                     right: "5%",
