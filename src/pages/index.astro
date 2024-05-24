@@ -72,15 +72,54 @@ const cardsDataLower: Props = {
 	  ]
 	}
   };
+
+  const sliderData1 = {
+	id: "1",
+	theme: "dark",
+	slides: [
+	  {
+		imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		title: "Master the Moment",
+		content: [
+		  "Golf ultimately comes down to one moment: The Moment of TRUTH, and that is Impact.",
+		  "If you truly want to master your golf moment, you must:",
+		  "Train with great awareness of mind and body",
+		  "Seek out trusted expert guidance",
+		  "And practice and play golf with a sharp focus on intention, purpose, and persistence",
+		  "If you maintain these guiding principles, you will MASTER YOUR MOMENT as a Beach City Golf Club member."
+		],
+		buttonText: "Sign up now",
+		buttonLink: "#"
+	  },
+	]
+  };
+  
+  const sliderData2 = {
+	id: "2",
+	theme: "light",
+	slides: [
+	  {
+		imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		title: "Discover Your Potential",
+		content: [
+		  "Unlock your full potential with our expert guidance and state-of-the-art facilities.",
+		  "Join us and take your golf game to the next level.",
+		  "Experience the difference with personalized coaching and comprehensive training programs."
+		],
+		buttonText: "Learn more",
+		buttonLink: "#"
+	  },
+	]
+  };
 ---
 
 <Layout title="BCG">
 	<main>
 		<Hero />
 		<Cards {...cardsData} />
-		<Slider theme="dark"/>
+		<Slider theme="dark" id="1" />
 		<Cards {...cardsDataLower} />
-		<Slider theme="light"/>
+		<Slider theme="light" id="2" />
 	</main>
 </Layout>
 

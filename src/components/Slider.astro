@@ -1,11 +1,12 @@
 ---
 interface Props {
 	theme: string;
+    id: string,
 }
 
-const { theme } = Astro.props;
+const { theme, id } = Astro.props;
 ---
-<section class=`splide slider slider-${theme}`>
+<section class=`splide slider slider-${theme}` id=`${id}`>
     <div class="splide__track">
         <div class="splide__list">
             <div class="slider-slide splide__slide">
@@ -210,30 +211,35 @@ const { theme } = Astro.props;
     import Splide from "@splidejs/splide";
 
     document.addEventListener("DOMContentLoaded", function() {
-        const splide = new Splide(".splide", {
-        type: "loop",
-        focus: "center",
-        perPage: 1,
-        arrows: false,
-        pagination: false,
-        breakpoints: {
-            750: {
-                padding: {
-                    left: "0",
-                    right: "5%",
+    document.querySelectorAll('.splide').forEach(carousel => {
+        let splide = new Splide(carousel, {
+            type: "loop",
+            focus: "center",
+            perPage: 1,
+            arrows: false,
+            pagination: false,
+            breakpoints: {
+                750: {
+                    padding: {
+                        left: "0",
+                        right: "5%",
+                    },
                 },
             },
-        },
+        }).mount();
+
+        let bar = splide.root.querySelector('.slider-progress-bar');
+        
+        // Set initial progress bar width on load
+        let end = splide.Components.Controller.getEnd() + 1;
+        let initialRate = Math.min((splide.index + 1) / end, 1);
+        bar.style.width = String(100 * initialRate) + '%';
+
+        splide.on('mounted move', function () {
+            let end = splide.Components.Controller.getEnd() + 1;
+            let rate = Math.min((splide.index + 1) / end, 1);
+            bar.style.width = String(100 * rate) + '%';
+        });
     });
-
-    let bar = splide.root.querySelector('.slider-progress-bar');
-
-    splide.on('mounted move', function () {
-        var end = splide.Components.Controller.getEnd() + 1;
-        var rate = Math.min((splide.index + 1) / end, 1);
-        bar.style.width = String(100 * rate) + '%';
-    });
-
-    splide.mount();
-    })
+});
 </script>
