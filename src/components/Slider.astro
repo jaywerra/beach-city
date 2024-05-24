@@ -1,4 +1,11 @@
-<section class="splide slider slider-dark">
+---
+interface Props {
+	theme: string;
+}
+
+const { theme } = Astro.props;
+---
+<section class=`splide slider slider-${theme}`>
     <div class="splide__track">
         <div class="splide__list">
             <div class="slider-slide splide__slide">
@@ -85,8 +92,8 @@
         </div>
     </div>
     <div class="container">
-        <div class="my-slider-progress">
-            <div class="my-slider-progress-bar"></div>
+        <div class="slider-progress">
+            <div class="slider-progress-bar"></div>
           </div>
     </div>
 </section>
@@ -182,7 +189,7 @@
 
 
 
-    .my-slider-progress {
+    .slider-progress {
         position: absolute;
         bottom: -66px;
         left: 50%;
@@ -190,8 +197,8 @@
         background: #DDD;
         transform: translateX(-50%);
     }
-    
-    .my-slider-progress-bar {
+
+    .slider-progress-bar {
         background: var(--blue100);
         height: 8px;
         transition: width 400ms ease;
@@ -209,10 +216,8 @@
         perPage: 1,
         arrows: false,
         pagination: false,
-        // gap: "1rem",
         breakpoints: {
             750: {
-                // fixedHeight: "500px",
                 padding: {
                     left: "0",
                     right: "5%",
@@ -221,7 +226,7 @@
         },
     });
 
-    let bar = splide.root.querySelector('.my-slider-progress-bar');
+    let bar = splide.root.querySelector('.slider-progress-bar');
 
     splide.on('mounted move', function () {
         var end = splide.Components.Controller.getEnd() + 1;

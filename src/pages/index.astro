@@ -1,16 +1,86 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import Cards from '../components/Cards.astro';
+import Cards, { Props } from '../components/Cards.astro';
 import Slider from '../components/Slider.astro';
+
+const cardsData: Props = {
+  header: {
+    title: "How do I get started?",
+    summary: "You have three great options and three great instructors to choose from.",
+  },
+  cards: {
+    halfWidth: [
+      {
+        imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        imageAlt: "",
+        title: "\"Member For A Day Pass\" Demo",
+        price: "$39",
+        features: [
+          "10-minute Tour (Facility/Technology)",
+          "30-minute Practice Session",
+          "10-minute Discuss Membership/Lesson Options"
+        ],
+        buttonText: "Book Now",
+        buttonLink: "#"
+      },
+      {
+        imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        imageAlt: "",
+        title: "“New Student” 60min Lesson/Assessment",
+        price: "$149",
+        description: ["Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
+        buttonText: "Book Now",
+        buttonLink: "#"
+      }
+    ],
+    fullWidth: [
+      {
+        imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        imageAlt: "",
+        title: "Lesson with Devan Bonebrake Host of GolfFix on GolfPass",
+        price: "$300",
+        description: ["Prefer to have a professional guide on your golf journey? Coach Devan understands your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
+        features: [
+          "Best One on One Instruction in SoCal",
+          "Full Access: Trackman Launch Monitor/PuttView Putting System",
+          "Voiceover video Analysis",
+          "Take home instruction/training",
+          "60 Min Session"
+        ],
+        buttonText: "Book With Devan",
+        buttonLink: "#"
+      }
+    ]
+  }
+};
+
+const cardsDataLower: Props = {
+	cards: {
+	  fullWidth: [
+		{
+		  imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		  imageAlt: "",
+		  title: "Our Mission Is Your Success",
+		  description: [
+		  	"Devan Bonebrake (Host of The Golf FIX, Golf Digest Best Young Teachers) and Mike Maggs (Top Instructor and Golf Entrepreneur) created the Beach City Golf Club in Hermosa Beach with one goal in mind…to use their expertise and passion for golf to create the perfect practice and training facility for improving your golf game.",
+		  	"Our convenient location coupled with expert personal instruction and state-of-the-art tech provides an addictive, fun, engaging, and highly effective set of membership options to improve your golf game once and for all!",
+		  ],
+		  buttonText: "Say No More, Get Me Started",
+		  buttonLink: "#"
+		}
+	  ]
+	}
+  };
 ---
 
 <Layout title="BCG">
 	<main>
 		<Hero />
-		<Cards />
-		<Slider />
-		<Hero />
+		<Cards {...cardsData} />
+		<Slider theme="dark"/>
+		<Cards {...cardsDataLower} />
+		<Slider theme="light"/>
 	</main>
 </Layout>
 

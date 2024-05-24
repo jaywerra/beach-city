@@ -1,100 +1,103 @@
+---
+// Cards.astro
+export interface Card {
+    imageSrc?: string;
+    imageAlt?: string;
+    title?: string;
+    price?: string;
+    description?: string[];
+    features?: string[];
+    buttonText?: string;
+    buttonLink?: string;
+  }
+  
+  export interface Props {
+    header?: {
+      title?: string;
+      summary?: string;
+    };
+    cards?: {
+      halfWidth?: Card[];
+      fullWidth?: Card[];
+    };
+  }
+  
+  const { header = {}, cards = { halfWidth: [], fullWidth: [] } } = Astro.props;
+---
+
 <section class="cards">
     <div class="container">
         <div class="cards-header">
-            <h2>
-                How do I get started?
-            </h2>
-            <div class="cards-summary">
-                <p>You have <strong>three</strong> great options and <strong>three</strong> great instructors to choose from.</p>
-            </div>
+            {header.title && <h2>{header.title}</h2>}
+            {header.summary && (
+                <div class="cards-summary">
+                    <p>{header.summary}</p>
+                </div>
+            )}
         </div>
         <div class="cards-grid">
             <div class="cards-grid-row-half">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                {cards.halfWidth?.map(card => (
+                    <div class="card">
+                        {card.imageSrc && (
+                            <div class="card-image">
+                                <img src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
+                            </div>
+                        )}
+                        <div class="card-copy">
+                            {card.title && <h2>{card.title}</h2>}
+                            {card.price && <p class="card-pill">{card.price}</p>}
+                            {card.features && (
+                                <ul>
+                                    {card.features.map(feature => (
+                                        <li>{feature}</li>
+                                    ))}
+                                </ul>
+                            )}
+                            {card.description && 
+                                card.description.map(paragraph => <p>{paragraph}</p>)
+                            }
+                            {card.buttonText && card.buttonLink && (
+                                <a href={card.buttonLink} class="button button--blue">
+                                    {card.buttonText}
+                                </a>
+                            )}
+                        </div>
                     </div>
-                    <div class="card-copy">
-                        <h2>
-                            "Member For A Day Pass" Demo
-                        </h2>
-                        <p class="card-pill">
-                            $39
-                        </p>
-                        <ul>
-                            <li>
-                                10-minute Tour (Facility/Technology)
-                            </li>
-                            <li>
-                                30-minute Practice Session
-                            </li>
-                            <li>
-                                10-minute Discuss Membership/Lesson Options
-                            </li>
-                        </ul>
-                        <a href="#" class="button button--blue">
-                            Book Now
-                        </a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-                    </div>
-                    <div class="card-copy">
-                        <h2>
-                            “New Student” 60min Lesson/Assessment
-                        </h2>
-                        <p class="card-pill">
-                            $149
-                        </p>
-                        <p>
-                            Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!
-                        </p>
-                        <a href="#" class="button button--blue">
-                            Book Now
-                        </a>
-                    </div>
-                </div>
+                ))}
             </div>
             <div class="cards-grid-row-full">
-                <div class="card card-fullwidth">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                {cards.fullWidth?.map(card => (
+                    <div class="card card-fullwidth">
+                        {card.imageSrc && (
+                            <div class="card-image">
+                                <img src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
+                            </div>
+                        )}
+                        <div class="card-copy">
+                            {card.title && <h2>{card.title}</h2>}
+                            {card.price && <p class="card-pill">{card.price}</p>}
+                            {card.description && 
+                                card.description.map(paragraph => <p>{paragraph}</p>)
+                            }
+                            {card.features && (
+                                <>
+                                    <h4>What you get</h4>
+                                    <ul>
+                                        {card.features.map(feature => (
+                                            <li>{feature}</li>
+                                        ))}
+                                    </ul>
+                                </>
+                            )}
+                            {card.buttonText && card.buttonLink && (
+                                <a href={card.buttonLink} class="button button--blue">
+                                    {card.buttonText}
+                                </a>
+                            )}
+                        </div>
                     </div>
-                    <div class="card-copy">
-                        <h2>
-                            Lesson with Devan Bonebrake Host of GolfFix on GolfPass
-                        </h2>
-                        <p class="card-pill">
-                            $300
-                        </p>
-                        <p>
-                            Prefer to have a professional guide on your golf journey? Coach Devan understands your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!
-                        </p>
-                        <h4>What you get</h4>
-                        <ul>
-                            <li>
-                                Best One on One Instruction in SoCal
-                            </li>
-                            <li>
-                                Full Access: Trackman Launch Monitor/PuttView Putting System
-                            </li>
-                            <li>
-                                Voiceover video Analysis
-                            </li>
-                            <li>
-                                Take home instruction/training
-                            </li>
-                            <li>
-                                60 Min Session
-                            </li>
-                        </ul>
-                        <a href="#" class="button button--blue">
-                            Book With Devan
-                        </a>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     </div>

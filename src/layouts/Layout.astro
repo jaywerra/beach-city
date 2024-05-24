@@ -6,6 +6,7 @@ interface Props {
 
 const { title } = Astro.props;
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -22,6 +23,7 @@ import Header from '../components/Header.astro';
 	<body>
 		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 <style is:global>
@@ -36,9 +38,9 @@ import Header from '../components/Header.astro';
 			white 60%
 		);
 		--blue100: #3385C6;
+		--black: #000;
 		--black200: #1B1B1B;
 		--white: #FFF;
-		--black: #000;
 	}
 
 	html {
