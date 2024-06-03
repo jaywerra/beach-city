@@ -1,119 +1,73 @@
 ---
-interface Props {
-	theme: string;
-    id: string,
+export interface Slide {
+    imageSrc: string;
+    imageAlt?: string;
+    title: string;
+    content: string[];
+    buttonText: string;
+    buttonLink: string;
 }
-
-const { theme, id } = Astro.props;
+export interface Props {
+    id: string;
+    theme: string;
+    slides: Slide[];
+}
+const { id, theme, slides } = Astro.props;
 ---
-<section class=`splide slider slider-${theme}` id=`${id}`>
+<section class={`splide slider slider-${theme}`} id={`${id}`}>
     <div class="splide__track">
         <div class="splide__list">
-            <div class="slider-slide splide__slide">
-                <div class="slider-image">
-                    <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-                </div>
-                <div class="slider-copy">
-                    <h2>Master the Moment</h2>
-                    <div class="slider-wysiwyg">
-                        <p>
-                            Golf ultimately comes down to one moment: The Moment of TRUTH, and that is Impact.
-                        </p>
-                        <p>
-                            If you truly want to master your golf moment, you must:
-                        </p>
-                        <ul>
-                            <li>Train with great awareness of mind and body</li>
-                            <li>Seek out trusted expert guidance</li>
-                            <li>And practice and play golf with a sharp focus on intention, purpose, and persistence</li>
-                        </ul>
-                        <p>
-                            If you maintain these guiding principles, you will MASTER YOUR MOMENT as a Beach City Golf Club member.
-                        </p>
+            {slides && Array.isArray(slides) && slides.map((slide, index) => (
+                <div class="slider-slide splide__slide" key={index}>
+                    <div class="slider-image">
+                        <img src={slide.imageSrc} alt={slide.imageAlt || ''} />
                     </div>
-                    <a href="#" class="button button--blue">
-                        Sign up now
-                    </a>
-                </div>
-            </div>
-            <div class="slider-slide splide__slide">
-                <div class="slider-image">
-                    <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-                </div>
-                <div class="slider-copy">
-                    <h2>Master the Moment</h2>
-                    <div class="slider-wysiwyg">
-                        <p>
-                            Golf ultimately comes down to one moment: The Moment of TRUTH, and that is Impact.
-                        </p>
-                        <p>
-                            If you truly want to master your golf moment, you must:
-                        </p>
-                        <ul>
-                            <li>Train with great awareness of mind and body</li>
-                            <li>Seek out trusted expert guidance</li>
-                            <li>And practice and play golf with a sharp focus on intention, purpose, and persistence</li>
-                        </ul>
-                        <p>
-                            If you maintain these guiding principles, you will MASTER YOUR MOMENT as a Beach City Golf Club member.
-                        </p>
+                    <div class="slider-copy">
+                        <h2>{slide.title}</h2>
+                        <div class="slider-wysiwyg">
+                            {slide.content.map((text, i) => (
+                                <p key={i}>{text}</p>
+                            ))}
+                        </div>
+                        {slide.buttonLink && (
+                            <a href={slide.buttonLink} class="button button--blue">
+                                {slide.buttonText}
+                            </a>
+                        )}
                     </div>
-                    <a href="#" class="button button--blue">
-                        Sign up now
-                    </a>
                 </div>
-            </div>
-            <div class="slider-slide splide__slide">
-                <div class="slider-image">
-                    <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-                </div>
-                <div class="slider-copy">
-                    <h2>Master the Moment</h2>
-                    <div class="slider-wysiwyg">
-                        <p>
-                            Golf ultimately comes down to one moment: The Moment of TRUTH, and that is Impact.
-                        </p>
-                        <p>
-                            If you truly want to master your golf moment, you must:
-                        </p>
-                        <ul>
-                            <li>Train with great awareness of mind and body</li>
-                            <li>Seek out trusted expert guidance</li>
-                            <li>And practice and play golf with a sharp focus on intention, purpose, and persistence</li>
-                        </ul>
-                        <p>
-                            If you maintain these guiding principles, you will MASTER YOUR MOMENT as a Beach City Golf Club member.
-                        </p>
-                    </div>
-                    <a href="#" class="button button--blue">
-                        Sign up now
-                    </a>
-                </div>
-            </div>
+            ))}
         </div>
     </div>
-    <div class="container">
+    <div class="container slider-controls">
+        <div class="splide__arrows">
+            <button class="splide__arrow splide__arrow--prev">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path d="M-1.9 256l17-17L207 47l17-17L257.9 64 241 81 65.9 256 241 431l17 17L224 481.9l-17-17L15 273l-17-17z"/>
+                </svg>
+            </button>
+            <button class="splide__arrow splide__arrow--next">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path d="M321.9 256l-17 17L113 465l-17 17L62.1 448l17-17 175-175L79 81l-17-17L96 30.1l17 17L305 239l17 17z"/>
+                </svg>
+            </button>
+        </div>
         <div class="slider-progress">
             <div class="slider-progress-bar"></div>
-          </div>
+        </div>
     </div>
 </section>
-
 <style>
     @import '@splidejs/splide/css';
-
     .slider {
         position: relative;
         padding: 40px 16px;
-
         @media (min-width: 750px) {
             padding: 96px 0 96px 48px;
         }
-
         .container {
             position: relative;
         }
-
         &.slider-dark {
             background: var(--black200);
             color: var(--white);
@@ -121,12 +75,20 @@ const { theme, id } = Astro.props;
         &.slider-light {
             background: var(--white);
             color: var(--black200);
+
+            .splide__arrow--prev,
+            .splide__arrow--next {
+                border-color: var(--blue100);
+                svg {
+                    fill: var(--blue100);
+                }
+            }
         }
+
         .slider-slide {
             display: flex;
             flex-direction: column;
             gap: 32px;
-
             @media (min-width: 750px) {
                 align-items: center;
                 flex-direction: row;
@@ -139,12 +101,10 @@ const { theme, id } = Astro.props;
                 width: 50%;
             }
         }
-
         .slider-image {
             border-radius: 2px;
             overflow: hidden;
         }
-
         .slider-copy {
             h2 {
                 margin: 0;
@@ -154,32 +114,27 @@ const { theme, id } = Astro.props;
                 letter-spacing: -1px;
                 line-height: 1.15;
                 text-transform: uppercase;
-
                 @media (min-width: 750px) {
+                    max-width: 500px;
                     font-size: 48px;
                 }
             }
-
             p, li {
                 font-size: 20px;
                 line-height: 1.5;
-
                 @media (min-width: 750px) {
                     max-width: 640px;
                     font-size: 22px;
                 }
             }
-
             ul {
                 padding-left: 22px;
                 list-style: disc;
-
                 li {
                     margin-bottom: 3px;
                 }
             }
         }
-
         .splide__sr {
             display: none !important;
             position: absolute;
@@ -187,59 +142,106 @@ const { theme, id } = Astro.props;
             visibility: hidden;
         }
     }
-
-
-
-    .slider-progress {
-        position: absolute;
-        bottom: -66px;
-        left: 50%;
-        width: 90%;
-        background: #DDD;
-        transform: translateX(-50%);
+    .slider-controls {
+        height: 50px;
+        margin-top: 64px;
     }
+    .slider-progress {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        background: #DDD;
+        transform: translate(-50%, -50%);
 
+        @media (min-width: 750px) {
+            display: block;
+        }
+    }
     .slider-progress-bar {
         background: var(--blue100);
         height: 8px;
         transition: width 400ms ease;
         width: 0;
     }
-</style>
+    .splide__arrows {
+        position: relative;
+        left: 0;
+        top: 50%;
+        display: flex;
+        gap: 16px;
 
+        .splide__arrow--prev,
+        .splide__arrow--next {
+            position: relative;
+            padding: 10px 20px;
+            height: 40px;
+            width: 40px;
+            background: none;
+            border: 1px solid var(--white);
+            opacity: 1;
+
+            @media (min-width: 750px) {
+                height: 50px;
+                width: 50px;
+            }
+
+            svg {
+                position: absolute;
+                height: 24px;
+                width: 20px;
+                fill: var(--white);
+                transform: none;
+
+                @media (min-width: 750px) {
+                    height: 32px;
+                    width: 24px;
+                }
+            }
+        }
+
+        .splide__arrow--prev {
+            left: 0;
+        }
+        .splide__arrow--next {
+            right: auto;
+        }
+    }
+
+</style>
 <script>
     import Splide from "@splidejs/splide";
-
     document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('.splide').forEach(carousel => {
-        let splide = new Splide(carousel, {
-            type: "loop",
-            focus: "center",
-            perPage: 1,
-            arrows: false,
-            pagination: false,
-            breakpoints: {
-                750: {
-                    padding: {
-                        left: "0",
-                        right: "5%",
+        document.querySelectorAll('.splide').forEach(carousel => {
+            let splide = new Splide(carousel, {
+                type: "loop",
+                focus: "center",
+                perPage: 1,
+                arrows: true,
+                pagination: false,
+                breakpoints: {
+                    750: {
+                        // padding: "20%",
                     },
                 },
-            },
-        }).mount();
-
-        let bar = splide.root.querySelector('.slider-progress-bar');
-        
-        // Set initial progress bar width on load
-        let end = splide.Components.Controller.getEnd() + 1;
-        let initialRate = Math.min((splide.index + 1) / end, 1);
-        bar.style.width = String(100 * initialRate) + '%';
-
-        splide.on('mounted move', function () {
+                classes: {
+                    arrows: 'splide__arrows',
+                    arrow : 'splide__arrow',
+                    prev  : 'splide__arrow--prev',
+                    next  : 'splide__arrow--next',
+                },
+            }).mount();
+            let bar = splide.root.querySelector('.slider-progress-bar');
+            // Set initial progress bar width on load
             let end = splide.Components.Controller.getEnd() + 1;
-            let rate = Math.min((splide.index + 1) / end, 1);
-            bar.style.width = String(100 * rate) + '%';
+            let initialRate = Math.min((splide.index + 1) / end, 1);
+            bar.style.width = String(100 * initialRate) + '%';
+            splide.on('mounted move', function () {
+                let end = splide.Components.Controller.getEnd() + 1;
+                let rate = Math.min((splide.index + 1) / end, 1);
+                bar.style.width = String(100 * rate) + '%';
+            });
         });
     });
-});
 </script>

@@ -12,6 +12,7 @@ export interface Card {
   }
   
   export interface Props {
+    theme: string;
     header?: {
       title?: string;
       summary?: string;
@@ -22,10 +23,10 @@ export interface Card {
     };
   }
   
-  const { header = {}, cards = { halfWidth: [], fullWidth: [] } } = Astro.props;
+  const { theme, header = {}, cards = { halfWidth: [], fullWidth: [] } } = Astro.props;
 ---
 
-<section class="cards">
+<section class={`cards ${theme ? `cards-${theme}` : ""}`}>
     <div class="container">
         <div class="cards-header">
             {header.title && <h2>{header.title}</h2>}
@@ -116,9 +117,17 @@ export interface Card {
             padding: 140px 64px 96px;
         }
 
+        &.cards-dark {
+            background: var(--black200);
+            color: var(--white);
+
+            h2 {
+                color: var(--white);
+            }
+        }
+
         .container {
             @media (min-width: 750px) {
-                /* padding: 0 64px; */
             }
         }
 
