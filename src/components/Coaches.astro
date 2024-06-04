@@ -1,0 +1,114 @@
+---
+export interface Coach {
+    name: string;
+    title: string;
+    buttonLabel: string;
+    buttonURL: string;
+}
+export interface Props {
+    theme: string;
+    heading: string;
+    coaches: Coach[];
+}
+const { theme, heading, coaches } = Astro.props;
+---
+
+<section class={`coaches ${theme ? `coaches-${theme}` : ""}`}>
+    <div class="container">
+        {heading && (<h2>{heading}</h2>)}
+        <div class="coaches-grid">
+            {coaches && Array.isArray(coaches) && coaches.map((coach, index) => (
+                <div class="coaches-card">
+                    <div class="coaches-image">
+                        <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    </div>
+                    <h4 class="coaches-name">{coach.name}</h4>
+                    <p class="coaches-title">{coach.title}</p>
+                    <div class="coaches-controls">
+                        <a href="#" class="button button--blue">{coach.buttonLabel}</a>
+                        <a href="#" class="button button-white-ghost">Meet {coach.name}</a>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .coaches {
+        padding: 40px 16px;
+        background: var(--white);
+
+        @media (min-width: 750px) {
+            padding: 96px 16px;
+        }
+
+        &.coaches-dark {
+            background: var(--black100);
+            color: var(--white);
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        h2 {
+            margin: 0 0 32px;
+            font-family: "proxima-nova-extra-condensed", sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            text-transform: uppercase;
+            @media (min-width: 750px) {
+                max-width: 500px;
+                font-size: 48px;
+            }
+        }
+
+        .coaches-grid {
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 1fr;
+
+            @media (min-width: 750px) {
+                gap: 48px;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .coaches-image {
+            margin-bottom: 20px;
+            border-radius: 2px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .coaches-name,
+        .coaches-title {
+            margin: 0;
+            font-family: "proxima-nova-extra-condensed", sans-serif;
+            font-weight: 600;
+            letter-spacing: -1px;
+            line-height: 1.25;
+            text-transform: uppercase;
+        }
+
+        .coaches-name {
+            font-size: 36px;
+        }
+
+        .coaches-title {
+            font-size: 22px;
+        }
+
+        .coaches-controls {
+            display: flex;
+            gap: 18px;
+            margin: 22px 0 0;
+        }
+    }
+</style>

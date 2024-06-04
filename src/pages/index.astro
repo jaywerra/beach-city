@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Cards, { Props } from '../components/Cards.astro';
 import Slider from '../components/Slider.astro';
+import Coaches from '../components/Coaches.astro';
 
 const cardsData: Props = {
   header: {
@@ -151,6 +152,23 @@ const cardsDataLower: Props = {
 	  ]
 	}
   };
+
+  const coachesData: Props = {
+	heading: "Guidance From Our Experts",
+	theme: "dark",
+	coaches: [
+		{
+			name: "Jack Henneberry",
+			title: "Director of Instruction",
+			buttonLabel: "Get Me Started",
+		},
+		{
+			name: "Calvin Maranville, PGA",
+			title: "Instructor",
+			buttonLabel: "Get Me Started",
+		}
+	]
+  }
 ---
 
 <Layout title="BCG">
@@ -159,6 +177,7 @@ const cardsDataLower: Props = {
 		<Cards {...cardsData} />
 		<Slider {...sliderData1} />
 		<Cards {...cardsDataLower2} />
+		<Coaches {...coachesData} />
 		<Slider {...sliderData2} />
 	</main>
 </Layout>
