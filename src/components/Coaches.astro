@@ -22,12 +22,14 @@ const { theme, heading, coaches } = Astro.props;
                     <div class="coaches-image">
                         <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                     </div>
-                    <h4 class="coaches-name">{coach.name}</h4>
-                    <p class="coaches-title">{coach.title}</p>
-                    <div class="coaches-controls">
-                        <a href="#" class="button button--blue">{coach.buttonLabel}</a>
-                        <a href="#" class="button button-white-ghost">Meet {coach.name}</a>
-                    </div>
+                    {coach.name && <h4 class="coaches-name">{coach.name}</h4>}
+                    {coach.title && <p class="coaches-title">{coach.title}</p>}
+                    {coach.buttonLabel && (
+                        <div class="coaches-controls">
+                            <a href="#" class="button button--blue">{coach.buttonLabel}</a>
+                            <a href="#" class="button button-white-ghost">Meet {coach.name}</a>
+                        </div>
+                    )}
                 </div>
             ))}
         </div>

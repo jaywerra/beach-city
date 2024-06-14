@@ -1,0 +1,89 @@
+---
+export interface Props {
+    theme?: string;
+    heading: string;
+    description: string;
+    items: string[];
+    buttonText: string;
+    buttonLink: string;
+}
+
+const {
+    theme = 'default',
+    heading,
+    description,
+    items,
+    buttonText,
+    buttonLink
+} = Astro.props;
+---
+
+<section class={`callout callout-${theme}`}>
+    <div class="container">
+      <h2>{heading}</h2>
+      <p>{description}</p>
+      <ul>
+        {items.map(item => (
+          <li set:html={item}></li>
+        ))}
+      </ul>
+      <div class="callout-controls">
+        <a href={buttonLink} class={`button ${theme === "blue" ? "button--white" : "button--blue"}`}>
+          {buttonText}
+        </a>
+      </div>
+    </div>
+  </section>
+
+<style>
+.callout {
+  padding: 40px 16px;
+  background: var(--white);
+  color: var(--black);
+
+  @media (min-width: 750px) {
+    padding: 96px 16px;
+  }
+
+  &.callout-blue {
+    background: var(--blue100);
+    color: var(--white);
+  }
+
+  h2 {
+    margin: 0 0 12px;
+    font-family: "proxima-nova-extra-condensed", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    text-wrap: balance;
+    text-transform: uppercase;
+
+    @media (min-width: 750px) {
+      font-size: 48px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  p, li {
+    font-size: 18px;
+
+    @media (min-width: 750px) {
+      font-size: 24px;
+    }
+  }
+
+  ul {
+    padding-left: 26px;
+    list-style: disc;
+  }
+
+  .callout-controls {
+    margin-top: 40px;
+  }
+}
+</style>
