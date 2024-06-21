@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Cards, { Props } from '../components/Cards.astro';
+import Slider from '../components/Slider.astro';
+import Coaches from '../components/Coaches.astro';
+import Callout from '../components/Callout.astro';
+
+const heroProps = {
+	quoteHeader: "It's Easy to Get Started With Beach City Golf Club",
+	primaryButtonLabel: "Join Our Free Trial",
+	primaryButtonLink: "/join",
+	ribbon: {
+	  header: "Already a Member?",
+	  buttonLabel: "Book a Session",
+	  buttonLink: "/book"
+	}
+};
+
+const cardsData: Props = {
+    header: {
+      title: "The Easiest Way To Get Started Now At The Beach City Golf Club Is Simply Select One Of The Following Options:",
+    },
+    cards: {
+      halfWidth: [
+        {
+          imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          imageAlt: "",
+          title: "\"Member For A Day Pass\" Demo",
+          price: "$39",
+          features: [
+            "10-minute Tour (Facility/Technology)",
+            "30-minute Practice Session",
+            "10-minute Discuss Membership/Lesson Options"
+          ],
+          buttonText: "Book Now",
+          buttonLink: "#"
+        },
+        {
+          imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          imageAlt: "",
+          title: "“New Student” 60min Lesson/Assessment",
+          price: "$149",
+          description: ["Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
+          buttonText: "Book Now",
+          buttonLink: "#"
+        }
+      ],
+    }
+  };
+
+  const coachesData: Props = {
+	heading: "Guidance From Our Experts",
+	theme: "dark",
+	coaches: [
+		{
+			name: "Jack Henneberry",
+			title: "Director of Instruction",
+			buttonLabel: "Get Me Started",
+		},
+		{
+			name: "Calvin Maranville, PGA",
+			title: "Instructor",
+			buttonLabel: "Get Me Started",
+		},
+        {
+			name: "Devan Bonebrake",
+			title: "Instructor",
+			buttonLabel: "Get Me Started",
+		}
+	]
+  }
+
+---
+
+<Layout title="BCG">
+	<main>
+		<Hero {...heroProps} />
+        <Cards {...cardsData} />
+        <Coaches {...coachesData} />
+	</main>
+</Layout>
+
+<style>
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+</style>

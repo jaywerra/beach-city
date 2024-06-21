@@ -5,7 +5,17 @@ import Cards, { Props } from '../components/Cards.astro';
 import Slider from '../components/Slider.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
-
+const heroProps = {
+	quoteHeader: "“Perfection is not attainable, but if we chase perfection we can catch excellence.”",
+	quoteAuthor: "- Vince Lombardi",
+	primaryButtonLabel: "Join Our Free Trial",
+	primaryButtonLink: "/join",
+	ribbon: {
+	  header: "Already a Member?",
+	  buttonLabel: "Book a Session",
+	  buttonLink: "/book"
+	}
+};
 const cardsData: Props = {
   header: {
     title: "How do I get started?",
@@ -180,7 +190,7 @@ const cardsDataLower: Props = {
 
 <Layout title="BCG">
 	<main>
-		<Hero />
+		<Hero {...heroProps} />
 		<Cards {...cardsData} />
 		<Slider {...sliderData1} />
 		<Cards {...cardsDataLower2} />

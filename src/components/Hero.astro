@@ -1,23 +1,37 @@
+---
+export interface RibbonProps {
+  header?: string;
+  buttonLabel?: string;
+  buttonLink?: string;
+}
+
+export interface HeroProps {
+  quoteHeader?: string;
+  quoteAuthor?: string;
+  primaryButtonLabel?: string;
+  primaryButtonLink?: string;
+  ribbon?: RibbonProps;
+}
+
+const { quoteHeader, quoteAuthor, primaryButtonLabel, primaryButtonLink, ribbon } = Astro.props as HeroProps;
+---
 <section class="hero">
     <div class="container">
-        <h1 class="quote-header">
-            “No matter how good you get, you can always get better, and that's the exciting part!”
-        </h1>
-        <p class="quote-author">
-            - Tiger Woods
-        </p>
-        <a href="#" class="button button--blue">
-            Try Our Member For A Day Pass for $49
-        </a>
+      <h1 class="quote-header">{quoteHeader}</h1>
+      <p class="quote-author">{quoteAuthor}</p>
+      <a href={primaryButtonLink} class="button button--blue">
+        {primaryButtonLabel}
+      </a>
+      {ribbon && (
         <div class="hero-ribbon">
-            <h2>Already A Practice Member?</h2>
-            <a href="#" class="button button--white">
-                Book Your Next Practice Session
-            </a>
+          <h2>{ribbon.header}</h2>
+          <a href={ribbon.buttonLink} class="button button--white">
+            {ribbon.buttonLabel}
+          </a>
         </div>
+      )}
     </div>
-</section>
-
+  </section>
 <style>
     .hero {
         position: relative;
