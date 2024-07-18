@@ -19,9 +19,11 @@ const { quoteHeader, quoteAuthor, primaryButtonLabel, primaryButtonLink, ribbon 
     <div class="container">
       <h1 class="quote-header">{quoteHeader}</h1>
       <p class="quote-author">{quoteAuthor}</p>
-      <a href={primaryButtonLink} class="button button--blue">
-        {primaryButtonLabel}
-      </a>
+        {primaryButtonLink && (
+            <a href={primaryButtonLink} class="button button--blue">
+                {primaryButtonLabel}
+            </a>
+        )}
       {ribbon && (
         <div class="hero-ribbon">
           <h2>{ribbon.header}</h2>
