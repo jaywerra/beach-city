@@ -213,7 +213,7 @@ const { id, theme, slides } = Astro.props;
 <script>
     import Splide from "@splidejs/splide";
     document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll('.splide').forEach(carousel => {
+        document.querySelectorAll('.splide.slider').forEach(carousel => {
             let splide = new Splide(carousel, {
                 type: "loop",
                 focus: "center",

@@ -5,6 +5,8 @@ import Cards, { Props } from '../components/Cards.astro';
 import Slider from '../components/Slider.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
+import Reviews from "../components/Reviews.astro";
+import SellingPoints from "../components/SellingPoints.astro";
 const heroProps = {
 	quoteHeader: "“Perfection is not attainable, but if we chase perfection we can catch excellence.”",
 	quoteAuthor: "- Vince Lombardi",
@@ -204,6 +206,8 @@ const cardsDataLower: Props = {
 			buttonText="I'm Ready To Get Started"
 			buttonLink="#"
 		/>
+		<Reviews />
+		<SellingPoints />
 	</main>
 </Layout>
 

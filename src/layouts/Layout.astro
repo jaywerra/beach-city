@@ -19,6 +19,15 @@ import Footer from '../components/Footer.astro';
 		<meta name="generator" content={Astro.generator} />
 		<link rel="stylesheet" href="https://use.typekit.net/nze3msc.css">
 		<title>{title}</title>
+		<!-- Google tag (gtag.js) -->
+		<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-YTZHB2GG5K"></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-YTZHB2GG5K');
+		</script>
 	</head>
 	<body>
 		<Header />
@@ -37,10 +46,13 @@ import Footer from '../components/Footer.astro';
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
+		--background-blue-gradient: linear-gradient(90deg, rgba(36, 90, 135, 1) 0%, rgba(47, 123, 179, 1) 100%);
 		--blue100: #3385C6;
+		--blue200: #153C5D;
 		--black: #000;
 		--black200: #1B1B1B;
 		--white: #FFF;
+		--grey100: #E8E8E8;
 	}
 
 	html {
@@ -50,11 +62,11 @@ import Footer from '../components/Footer.astro';
 	}
 
 	html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+		box-sizing: border-box;
+	}
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
 
 	body {
 		margin: 0;
@@ -133,6 +145,27 @@ import Footer from '../components/Footer.astro';
 
 		&.button-white-ghost {
 			border: 1px solid var(--white);
+			color: var(--white);
+		}
+	}
+
+	.bg-gradient-blue {
+		background-image: var(--background-blue-gradient);
+	}
+
+	.section-heading {
+		margin: 0 0 12px;
+		font-family: "proxima-nova-extra-condensed", sans-serif;
+		font-size: 40px;
+		font-weight: 600;
+		letter-spacing: -1px;
+		line-height: 1.15;
+		text-wrap: balance;
+		text-transform: uppercase;
+		@media (min-width: 750px) {
+			font-size: 48px;
+		}
+		&.section-heading-white {
 			color: var(--white);
 		}
 	}
