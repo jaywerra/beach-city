@@ -39,7 +39,7 @@
         <div class="header-controls">
             <ul>
                 <li>
-                    <a href="#">310-439-9002</a>
+                    <a href="#" class="call-us">310-439-9002</a>
                 </li>
                 <li>
                     <a href="https://app.squarespacescheduling.com/schedule.php?owner=21968379&appointmentType=category:BCGC%20Getting%20Started%20%2F%20Member%20Practice%3A%20Hermosa%20Beach%2C%20Ca" class="button button--blue" target="_blank">
@@ -206,21 +206,25 @@
                     font-size: 21px;
                     font-weight: 700;
                     letter-spacing: 0.02em;
-
+                    transition: linear 0.25s;
                     @media (min-width: 750px) {
                         display: inline-block;
                     }
+                }
+            }
+
+            &.header-scrolled {
+                a.call-us {
+                    color: var(--blue100);
                 }
             }
         }
     }
     .logo {
         display: inline-block;
-        /* height: 50px; */
         width: 130px;
 
         @media (min-width: 500px) {
-            /* height: 60px; */
             width: 200px;
         }
     }
@@ -262,7 +266,7 @@
             toggleActions: "play none none reverse",
             toggleClass: {
                 className: "header-scrolled",
-                targets: ".header-nav",
+                targets: [".header-nav", ".header-controls"],
             },
         },
         duration: 0.3
