@@ -119,6 +119,7 @@ import Footer from '../components/Footer.astro';
 		font-size: 18px;
 		font-weight: 700;
 		text-transform: uppercase;
+		transition: linear 0.25s;
 
 		@media (min-width: 370px) {
 			font-size: 20px;
@@ -146,6 +147,11 @@ import Footer from '../components/Footer.astro';
 		&.button-white-ghost {
 			border: 1px solid var(--white);
 			color: var(--white);
+
+			&:hover {
+				background: var(--white);
+				color: var(--black);
+			}
 		}
 	}
 
