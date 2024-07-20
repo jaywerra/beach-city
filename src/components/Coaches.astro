@@ -2,6 +2,8 @@
 export interface Coach {
     name: string;
     title: string;
+    imageSrc?: string;
+    imageAlt?: string;
     bio: string;
     buttonLabel: string;
     buttonURL: string;
@@ -18,6 +20,8 @@ const coachesData = {
         {
             name: "Devan Bonebrake",
             title: "Director of Instruction",
+            imageSrc: "/devon-membership.jpg",
+            imageAlt: "Headshot of Devan Bonebrake",
             buttonLabel: "Get Me Started",
             buttonURL: "https://generalstudentbooking.as.me/DevanBonebrakeLesson",
             bio: "I'm Coach Devan Bonebrake, I'm the founder of the Southern California golf Academy as well as the host of the #1 show the GolfFix on GolfPass and the Golf Channel. I’m originally from Portland Oregon, and played collegiate golf at College of the Desert in Palm Desert before transferring to San Diego State. Upon graduation from SDSU in 2007 I started working for Jim McLean at PGA West in La Quinta California. I started spending a great deal of time with Jim McLean and was subsequently asked by Jim to move to the TPC Doral location in Miami Florida to be his Personal Teaching Assistant. As Jim McLean’s personal assistant I was fortunate to be able to teach with Jim in every golf lesson, clinic and school that he taught. Some of the notable players he worked with while Jim’s Assistant were Greg Norman, Keegan Bradley, Lexi Thompson, Eric Compton, and Vaughn Taylor. Devan also aided Jim in the writing of his Death Moves book in 2009. In 2011 Devan was offered a Master Instructor position at The Jim McLean Junior Academy in Dallas/Fort Worth. He spent the next 5 years helping develop some of the best Junior golfers in the country. In addition to Jim McLean Devan has had the opportunity to spend significant time with Mike Bender, Jim Hardy, Hank Haney, Chuck Cook, Jim Flick, and Carl Welty. The culmination of this time has helped shape the way Devan teaches golf. Devan enjoys working with players of all abilities from the High Performance Junior to the Weekend Golfer, or just anyone looking to pick up the game and have fun!",
@@ -25,6 +29,8 @@ const coachesData = {
         {
             name: "Jack Henneberry",
             title: "Director of Instruction",
+            imageSrc: "/jack-henneberry-beach-city-golf.jpg",
+            imageAlt: "Headshot of Jack Henneberry",
             buttonLabel: "Get Me Started",
             buttonURL: "https://generalstudentbooking.as.me/JackHenneberryNSA",
             bio: "I am a the Director of Instruction at the Beach City Golf Club in Hermosa Beach,CA. I have been playing competitive golf for most of my life which propelled me into teaching. My teaching philosophy entails how the golf club moves from a physics standpoint, how the body’s balance, strength and mobility affect how the club moves, the skill level of the golfer and lastly what are the intentions of each individual student.  I utilize Trackman technology in tandem with face on and down the line cameras to identify areas of improvement to mitigate the frequency and dispersion of our poor outcomes. My background as a consultant at Ernst & Young (EY) has taught me to look for the root cause to understand why the bad symptom occurs to truly enhance the business (or in this case the golfer). Every golfer is different based upon their own experiences which includes sports they may have played growing up as well as any injuries they may have incurred along the way. Every golfer and their swing is different and my job is to show you golf can be fun and easier when you have the right coach, information and support in your corner. I love to teach because I know how hard this game is and I always appreciated coaches that made to be the best golfer and person I can be. I look forward to the day we start our journey to make you a better golfer!",
@@ -32,6 +38,8 @@ const coachesData = {
         {
             name: "Calvin Maranville, PGA",
             title: "Instructor",
+            imageSrc: "/calvin-maranville-pga-beach-city-golf.jpg",
+            imageAlt: "Headshot of Calvin Maranville, PGA",
             buttonLabel: "Get Me Started",
             buttonURL: "https://generalstudentbooking.as.me/CalvinMaranvilleNSA",
             bio: "I am here to help you unlock your true potential on the green. From the moment I could hold a club, golf has been my passion. At the age of 12, I dedicated myself to this incredible sport, and since then, I have never looked back. With 9 years of competitive playing experience, including 2 years on the prestigious Golden State Tour, golf has shaped me into the teacher I am today. In 2012, I entered the golf industry, and in 2014, I discovered my true calling – teaching. Witnessing the transformation of my students, seeing their smiles, and knowing that I have contributed to their growth is the most rewarding feeling I have ever experienced. As a Class A Teaching Professional, I bring expertise, knowledge, and a deep love for the game to every lesson. But it’s not just about golf for me; it’s about the life skills this game teaches us. Discipline, focus, perseverance – these are just a few of the invaluable qualities you will develop through golf. And let’s not forget the addictive feeling of hitting a pure golf shot. It’s a sensation that never gets old, and it will keep you coming back for more. Golf is a journey, and I am here to guide you every step of the way. Together, we will explore the endless opportunities for improvement in your game. And along the way, you will forge lifelong friendships, just as I have. Golf has always been my Zen, my sanctuary, and I can’t wait to share this incredible journey with you. So, whether you are a beginner looking to take your first swing or an experienced golfer seeking to refine your skills, join me at Beach City Golf Club, and let’s embark on an unforgettable golfing adventure together!",
@@ -49,7 +57,7 @@ const { heading, theme, coaches } = coachesData;
         {coaches && Array.isArray(coaches) && coaches.map((coach, index) => (
           <div class="coaches-card" id={`coach-card-${index}`}>
             <div class="coaches-image">
-              <img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+              <img src={coach.imageSrc} alt={coach.imageAlt}>
             </div>
             {coach.name && <h4 class="coaches-name">{coach.name}</h4>}
             {coach.title && <p class="coaches-title">{coach.title}</p>}

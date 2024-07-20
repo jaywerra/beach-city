@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import Cards, { Props } from '../components/Cards.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
+import SellingPoints from "../components/SellingPoints.astro";
 
 const heroProps = {
 	quoteHeader: "It's Easy to Get Started With Beach City Golf Club",
@@ -54,6 +55,7 @@ const cardsData: Props = {
 	<main>
 		<Hero {...heroProps} />
         <Cards {...cardsData} />
+        <SellingPoints />
         <Coaches />
 	</main>
 </Layout>
