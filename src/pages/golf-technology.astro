@@ -3,9 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Cards, { Props } from '../components/Cards.astro';
 import Callout from '../components/Callout.astro';
-
+import Reviews from "../components/Reviews.astro";
 const heroProps = {
 	quoteHeader: "Technology For Your Game",
+    backgroundImageUrl: "/trackman-player-swinging.jpg",
 	// primaryButtonLabel: "Book a $49 Member for a Day Pass",
 	// primaryButtonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC",
 	ribbon: {
@@ -46,11 +47,26 @@ const cardsData: Props = {
       ],
     }
   };
+
+  const items = [
+	'60 min <strong>MEMBER FOR A DAY PASS (DEMO)</strong>',
+	'60 min Assessment/Lesson with one of our Elite Coaches.'
+	];
 ---
 
 <Layout title="BCG">
 	<main>
 		<Hero {...heroProps} />
+        <Reviews />
+        <Callout
+            theme="blue"
+            heading="Not ready to select a Membership/Series yet… No Problem!"
+            description="It's easy to get started just select one of the following:"
+            items={items}
+            buttonText="I'm Ready To Get Started"
+            buttonLink="#"
+        />
+        
 	</main>
 </Layout>
 

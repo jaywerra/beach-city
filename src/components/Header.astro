@@ -103,8 +103,12 @@
             ul {
                 display: flex;
                 gap: 30px;
-                margin: 0;
+                margin: 24px 0 0;
                 padding-left: 0;
+
+                @media (min-width: 750px) {
+                    margin: 0;
+                }
 
                 @media (min-width: 1150px) {
                     gap: 24px;
@@ -115,13 +119,17 @@
                 }
 
                 a {
-                    color: var(--white);
+                    color: var(--black);
                     font-family: "proxima-nova-extra-condensed", sans-serif;
                     font-size: 21px;
                     font-weight: 600;
                     letter-spacing: 0.025em;
                     text-transform: uppercase;
                     transition: linear 0.25s;
+
+                    @media (min-width: 750px) {
+                        color: var(--white);
+                    }
 
                     &:hover {
                         color: var(--blue100);
