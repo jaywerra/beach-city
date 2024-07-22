@@ -10,150 +10,181 @@ export interface HeroProps {
   quoteAuthor?: string;
   primaryButtonLabel?: string;
   primaryButtonLink?: string;
+  videoUrl?: string;
+  backgroundImageUrl?: string;
   ribbon?: RibbonProps;
 }
 
-const { quoteHeader, quoteAuthor, primaryButtonLabel, primaryButtonLink, ribbon } = Astro.props as HeroProps;
+const { quoteHeader, quoteAuthor, primaryButtonLabel, primaryButtonLink, videoUrl, backgroundImageUrl, ribbon } = Astro.props as HeroProps;
 ---
-<section class="hero">
-    <div class="container">
-      <h1 class="quote-header">{quoteHeader}</h1>
-      <p class="quote-author">{quoteAuthor}</p>
-        {primaryButtonLink && (
-            <a href={primaryButtonLink} class="button button--blue">
-                {primaryButtonLabel}
-            </a>
-        )}
-      {ribbon && (
-        <div class="hero-ribbon">
-          <h2>{ribbon.header}</h2>
-          <a href={ribbon.buttonLink} class="button button--white" target="_blank">
-            {ribbon.buttonLabel}
-          </a>
-        </div>
-      )}
-    </div>
-  </section>
+<section class="hero" style={`background-image: url('${!videoUrl && backgroundImageUrl ? backgroundImageUrl : ''}')`}>
+  {videoUrl && (
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src={videoUrl} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  )}
+  <div class="container">
+    <h1 class="quote-header">{quoteHeader}</h1>
+    <p class="quote-author">{quoteAuthor}</p>
+    {primaryButtonLink && (
+      <a href={primaryButtonLink} class="button button--blue">
+        {primaryButtonLabel}
+      </a>
+    )}
+    {ribbon && (
+      <div class="hero-ribbon">
+        <h2>{ribbon.header}</h2>
+        <a href={ribbon.buttonLink} class="button button--white" target="_blank">
+          {ribbon.buttonLabel}
+        </a>
+      </div>
+    )}
+  </div>
+</section>
 <style>
-    .hero {
+  .hero {
+    position: relative;
+    height: 90vh;
+    background: #111;
+    background-size: cover;
+    background-position: center;
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.35);
+        content: "";
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
         position: relative;
-        height: 90vh;
-        background: #111;
+        z-index: 1;
+    }
 
-        .container {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-        }
-        h1 {
-            margin: 0 auto;
-            max-width: 960px;
-            color: var(--white);
-            font-family: "proxima-nova-extra-condensed", sans-serif;
-            font-size: 32px;
-            font-weight: 600;
-            line-height: 1.15;
-            text-align: center;
-            text-transform: uppercase;
+    .hero-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
 
-            @media (min-width: 360px) {
-                font-size: 36px;
-            }
+    h1 {
+        margin: 0 auto;
+        max-width: 960px;
+        color: var(--white);
+        font-family: "proxima-nova-extra-condensed", sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.15;
+        text-align: center;
+        text-transform: uppercase;
 
-            @media (min-width: 400px) {
-                font-size: 40px;
-            }
-
-            @media (min-width: 500px) {
-                font-size: 48px;
-            }
-            @media (min-width: 750px) {
-                font-size: 56px;
-            }
-            @media (min-width: 750px) {
-                max-width: 720px;
-            }
-            @media (min-width: 1200px) {
-                max-width: 1160px;
-                font-size: 64px;
-            }
+        @media (min-width: 360px) {
+            font-size: 36px;
         }
 
-        .quote-author {
-            margin: 5px auto 40px;
-            color: var(--white);
-            font-family: "proxima-nova-extra-condensed", sans-serif;
-            font-size: 24px;
-            font-weight: 600;
-            text-align: center;
-            text-transform: uppercase;
-
-            @media (min-width: 1200px) {
-                font-size: 30px;
-            }
+        @media (min-width: 400px) {
+            font-size: 40px;
         }
 
-        .hero-ribbon {
-            position: absolute;
-            left: 0;
-            top: calc(90vh - 78px);
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 32px 16px;
-            width: 100%;
-            background: var(--blue100);
-            border-radius: 2px;
-
-            @media (min-width: 400px) {
-                padding: 40px 20px;
-            }
-
-            @media (min-width: 550px) {
-                padding: 40px 24px;
-            }
-
-            @media (min-width: 750px) {
-                left: 50%;
-                flex-direction: row;
-                max-width: 1600px;
-                width: 98%;
-                transform: translateX(-50%);
-            }
-
-            @media (min-width: 900px) {
-                padding: 48px 64px;
-            }
-
-            h2 {
-                margin: 0 auto 24px;
-                color: var(--white);
-                font-family: "proxima-nova-extra-condensed", sans-serif;
-                font-size: 32px;
-                font-weight: 600;
-                line-height: 1.15;
-                text-align: center;
-                text-transform: uppercase;
-
-                @media (min-width: 400px) {
-                    font-size: 36px;
-                }
-
-                @media (min-width: 550px) {
-                    text-align: left;
-                }
-
-                @media (min-width: 750px) {
-                    margin: 0;
-                }
-
-                @media (min-width: 900px) {
-                    font-size: 40px;
-                }
-            }
+        @media (min-width: 500px) {
+            font-size: 48px;
+        }
+        @media (min-width: 750px) {
+            font-size: 56px;
+        }
+        @media (min-width: 750px) {
+            max-width: 720px;
+        }
+        @media (min-width: 1200px) {
+            max-width: 1160px;
+            font-size: 64px;
         }
     }
+
+    .quote-author {
+        margin: 5px auto 40px;
+        color: var(--white);
+        font-family: "proxima-nova-extra-condensed", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+
+        @media (min-width: 1200px) {
+            font-size: 30px;
+        }
+    }
+
+      .hero-ribbon {
+          position: absolute;
+          left: 0;
+          top: calc(100% - 78px);
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 32px 16px;
+          width: 100%;
+          background: var(--blue100);
+          border-radius: 2px;
+
+          @media (min-width: 400px) {
+              padding: 40px 20px;
+          }
+
+          @media (min-width: 550px) {
+              padding: 40px 24px;
+          }
+
+          @media (min-width: 750px) {
+              left: 50%;
+              flex-direction: row;
+              max-width: 1600px;
+              width: 98%;
+              transform: translateX(-50%);
+          }
+
+          @media (min-width: 900px) {
+              padding: 48px 64px;
+          }
+
+          h2 {
+              margin: 0 auto 24px;
+              color: var(--white);
+              font-family: "proxima-nova-extra-condensed", sans-serif;
+              font-size: 32px;
+              font-weight: 600;
+              line-height: 1.15;
+              text-align: center;
+              text-transform: uppercase;
+
+              @media (min-width: 400px) {
+                  font-size: 36px;
+              }
+
+              @media (min-width: 550px) {
+                  text-align: left;
+              }
+
+              @media (min-width: 750px) {
+                  margin: 0;
+              }
+
+              @media (min-width: 900px) {
+                  font-size: 40px;
+              }
+          }
+      }
+  }
 </style>
