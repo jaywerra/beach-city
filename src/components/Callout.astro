@@ -22,11 +22,14 @@ const {
     <div class="container">
       <h2>{heading}</h2>
       <p>{description}</p>
-      <ul>
-        {items.map(item => (
-          <li set:html={item}></li>
-        ))}
-      </ul>
+      {items && (
+        <ul>
+            {items.map(item => (
+            <li set:html={item}></li>
+            ))}
+        </ul>
+      )}
+
       <div class="callout-controls">
         <a href={buttonLink} class={`button ${theme === "blue" ? "button--white" : "button--blue"}`}>
           {buttonText}

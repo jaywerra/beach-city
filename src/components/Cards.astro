@@ -1,107 +1,107 @@
 ---
-// Cards.astro
 export interface Card {
-    imageSrc?: string;
-    imageAlt?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  title?: string;
+  price?: string;
+  description?: string[];
+  features?: string[];
+  buttonText?: string;
+  buttonLink?: string;
+}
+
+export interface Props {
+  theme: string;
+  reverseLayout: boolean;
+  header?: {
     title?: string;
-    price?: string;
-    description?: string[];
-    features?: string[];
-    buttonText?: string;
-    buttonLink?: string;
-  }
-  
-  export interface Props {
-    theme: string;
-    header?: {
-      title?: string;
-      summary?: string;
-    };
-    cards?: {
-      halfWidth?: Card[];
-      fullWidth?: Card[];
-    };
-  }
-  
-  const { theme, header = {}, cards = { halfWidth: [], fullWidth: [] } } = Astro.props;
+    summary?: string;
+  };
+  cards?: {
+    halfWidth?: Card[];
+    fullWidth?: Card[];
+  };
+}
+
+const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [] } } = Astro.props;
 ---
 
-<section class={`cards ${theme ? `cards-${theme}` : ""}`}>
-    <div class="container">
-        <div class="cards-header">
-            {header.title && <h2>{header.title}</h2>}
-            {header.summary && (
-                <div class="cards-summary">
-                    <p>{header.summary}</p>
-                </div>
-            )}
+<section class={`cards ${theme ? `cards-${theme}` : ""} ${reverseLayout ? `cards-reverse` : ""}`}>
+  <div class="container">
+    <div class="cards-header">
+      {header.title && <h2>{header.title}</h2>}
+      {header.summary && (
+        <div class="cards-summary">
+          <p>{header.summary}</p>
         </div>
-        <div class="cards-grid">
-            <div class="cards-grid-row-half">
-                {cards.halfWidth?.map(card => (
-                    <div class="card">
-                        {card.imageSrc && (
-                            <div class="card-image">
-                                <img src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
-                            </div>
-                        )}
-                        <div class="card-copy">
-                            {card.title && <h2>{card.title}</h2>}
-                            {card.price && <p class="card-pill">{card.price}</p>}
-                            {card.features && (
-                                <ul>
-                                    {card.features.map(feature => (
-                                        <li>{feature}</li>
-                                    ))}
-                                </ul>
-                            )}
-                            {card.description && 
-                                card.description.map(paragraph => <p>{paragraph}</p>)
-                            }
-                            {card.buttonText && card.buttonLink && (
-                                <a href={card.buttonLink} class="button button--blue">
-                                    {card.buttonText}
-                                </a>
-                            )}
-                        </div>
-                    </div>
-                ))}
-            </div>
-            <div class="cards-grid-row-full">
-                {cards.fullWidth?.map(card => (
-                    <div class="card card-fullwidth">
-                        {card.imageSrc && (
-                            <div class="card-image">
-                                <img src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
-                            </div>
-                        )}
-                        <div class="card-copy">
-                            {card.title && <h2>{card.title}</h2>}
-                            {card.price && <p class="card-pill">{card.price}</p>}
-                            {card.description && 
-                                card.description.map(paragraph => <p>{paragraph}</p>)
-                            }
-                            {card.features && (
-                                <>
-                                    <h4>What you get</h4>
-                                    <ul>
-                                        {card.features.map(feature => (
-                                            <li>{feature}</li>
-                                        ))}
-                                    </ul>
-                                </>
-                            )}
-                            {card.buttonText && card.buttonLink && (
-                                <a href={card.buttonLink} class="button button--blue">
-                                    {card.buttonText}
-                                </a>
-                            )}
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
+      )}
     </div>
+    <div class="cards-grid">
+      <div class="cards-grid-row-half">
+        {cards.halfWidth?.map(card => (
+          <div class="card">
+            {card.imageSrc && (
+              <div class="card-image">
+                <img src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
+              </div>
+            )}
+            <div class="card-copy">
+              {card.title && <h2>{card.title}</h2>}
+              {card.price && <p class="card-pill">{card.price}</p>}
+              {card.features && (
+                <ul>
+                  {card.features.map(feature => (
+                    <li>{feature}</li>
+                  ))}
+                </ul>
+              )}
+              {card.description && 
+                card.description.map(paragraph => <p>{paragraph}</p>)
+              }
+              {card.buttonText && card.buttonLink && (
+                <a href={card.buttonLink} class="button button--blue">
+                  {card.buttonText}
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="cards-grid-row-full">
+        {cards.fullWidth?.map(card => (
+          <div class="card card-fullwidth">
+            {card.imageSrc && (
+              <div class="card-image">
+                <img src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
+              </div>
+            )}
+            <div class="card-copy">
+              {card.title && <h2>{card.title}</h2>}
+              {card.price && <p class="card-pill">{card.price}</p>}
+              {card.description && 
+                card.description.map(paragraph => <p>{paragraph}</p>)
+              }
+              {card.features && (
+                <>
+                  <h4>What you get</h4>
+                  <ul>
+                    {card.features.map(feature => (
+                      <li>{feature}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {card.buttonText && card.buttonLink && (
+                <a href={card.buttonLink} class="button button--blue">
+                  {card.buttonText}
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -114,7 +114,17 @@ export interface Card {
         }
 
         @media (min-width: 900px) {
-            padding: 140px 64px 96px;
+            padding: 96px 64px 96px;
+        }
+
+        &.cards-reverse {
+            padding-top: 12px;
+            padding-bottom: 0;
+            .card.card-fullwidth {
+                @media (min-width: 750px) {
+                    flex-direction: row !important;
+                }
+            }
         }
 
         .cards-header {

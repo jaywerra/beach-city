@@ -7,55 +7,93 @@ import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
 
 const heroProps = {
-	quoteHeader: "Premier Club Fitting",
-	// primaryButtonLabel: "Book a $49 Member for a Day Pass",
-	// primaryButtonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC",
+	quoteHeader: "Unlock Your Perfect Fit with Our Professional Fitters and Experience the Difference a Custom Fit Can Make.",
+	primaryButtonLabel: "Book Your Fitting",
+	primaryButtonLink: "https://generalstudentbooking.as.me/schedule.php?appointmentType=54195413",
     videoUrl: "/taylormade-fitting.mp4",
-	// ribbon: {
-	//   header: "Already a Member?",
-	//   buttonLabel: "Book a Session",
-	//   buttonLink: "https://generalstudentbooking.as.me/MemberPractice"
-	// }
 };
 
-const cardsData: Props = {
-    header: {
-      title: "The Easiest Way To Get Started Now At The Beach City Golf Club Is Simply Select One Of The Following Options:",
-    },
-    cards: {
-      halfWidth: [
-        {
-          imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          imageAlt: "",
-          title: "\"Member For A Day Pass\" Demo",
-          price: "$49",
-          features: [
-            "10-minute Tour (Facility/Technology)",
-            "30-minute Practice Session",
-            "10-minute Discuss Membership/Lesson Options"
-          ],
-          buttonText: "Book Now",
-          buttonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC"
-        },
-        {
-          imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          imageAlt: "",
-          title: "“New Student” 60min Lesson/Assessment",
-          price: "$149",
-          description: ["Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
-          buttonText: "Book Now",
-          buttonLink: "https://generalstudentbooking.as.me/BCGCGetStartedNSAandPracticeOptions"
-        }
-      ],
-    }
-  };
+const cardsDataUpper: Props = {
+    reverseLayout: true,
+	cards: {
+	  fullWidth: [
+		{
+		  imageSrc: "/TM24FAM_Qi10_Core_Family_Lightspeed_3Q_OSN_v1.jpg",
+		  imageAlt: "",
+		  description: [
+		  	"The Taylormade Qi10 Family has you covered from the most Moment of Interia (MOI) Qi10 Max models to the most precise Qi10 Tour Line.",
+		  ],
+		},
+	  ]
+	}
+};
+
+const cardsDataMiddle: Props = {
+    reverseLayout: false,
+	cards: {
+	  fullWidth: [
+		{
+		  imageSrc: "/TM24IRN-TC557-Qi-Iron-Chart-001-v1.jpg",
+		  imageAlt: "",
+		  description: [
+		  	"The Qi10 irons stand out on their own as each iron head is individual designed to produce more forgiveness and the optimal launching conditions.",
+		  ],
+		},
+	  ]
+	}
+};
+
+const cardsDataLower: Props = {
+    reverseLayout: true,
+	cards: {
+	  fullWidth: [
+		{
+		  imageSrc: "/TM23IRN-F498-N2780109-P790-LFS-JPO-02645-V1.jpg",
+		  imageAlt: "",
+		  description: [
+		  	"The new P790 irons pave the way with their best in industry speed foam forged irons with each iron head being developed to achieve the best performance for every golfer.",
+		  ],
+		},
+	  ]
+	}
+};
+
+const cardsDataLast: Props = {
+    reverseLayout: false,
+	cards: {
+	  fullWidth: [
+		{
+		  imageSrc: "/TM23WDG-TC518-MG4-Chrome-FAM-BMWMG45443-v1.jpg",
+		  imageAlt: "",
+		  description: [
+		  	"The new Milled Grind 4 (MG4) wedges come in a variety of lofts, grinds and bounces to meet your short game needs. Including the low bounce V grind, standard bounce C grind and the high bounce W grind",
+		  ],
+		},
+	  ]
+	}
+};
+
+const items = [
+	'60 min <strong>MEMBER FOR A DAY PASS (DEMO)</strong>',
+	'60 min Assessment/Lesson with one of our Elite Coaches.'
+];
+
 ---
 
 <Layout title="BCG">
 	<main>
 		<Hero {...heroProps} />
-        <Cards {...cardsData} />
-        <Coaches />
+        <Cards {...cardsDataUpper} />
+        <Cards {...cardsDataMiddle} />
+        <Cards {...cardsDataLower} />
+        <Cards {...cardsDataLast} />
+		<Callout
+			theme="blue"
+			heading="Get Custom Fitted Today!"
+			description="Book an appointment with our expert fitters and elevate your game with a perfect fit."
+			buttonText="Book Your Fitting"
+			buttonLink="https://generalstudentbooking.as.me/schedule.php?appointmentType=54195413"
+		/>
 	</main>
 </Layout>
 
