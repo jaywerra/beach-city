@@ -2,6 +2,7 @@
 export interface Coach {
     name: string;
     title: string;
+    titleSuffi?: string,
     imageSrc?: string;
     imageAlt?: string;
     bio: string;
@@ -19,7 +20,7 @@ const coachesData = {
     coaches: [
         {
             name: "Devan Bonebrake",
-            title: "Director of Instruction",
+            title: "Owner",
             imageSrc: "/devon-membership.jpg",
             imageAlt: "Headshot of Devan Bonebrake",
             buttonLabel: "Get Me Started",
@@ -36,8 +37,9 @@ const coachesData = {
             bio: "I am a the Director of Instruction at the Beach City Golf Club in Hermosa Beach,CA. I have been playing competitive golf for most of my life which propelled me into teaching. My teaching philosophy entails how the golf club moves from a physics standpoint, how the body’s balance, strength and mobility affect how the club moves, the skill level of the golfer and lastly what are the intentions of each individual student.  I utilize Trackman technology in tandem with face on and down the line cameras to identify areas of improvement to mitigate the frequency and dispersion of our poor outcomes. My background as a consultant at Ernst & Young (EY) has taught me to look for the root cause to understand why the bad symptom occurs to truly enhance the business (or in this case the golfer). Every golfer is different based upon their own experiences which includes sports they may have played growing up as well as any injuries they may have incurred along the way. Every golfer and their swing is different and my job is to show you golf can be fun and easier when you have the right coach, information and support in your corner. I love to teach because I know how hard this game is and I always appreciated coaches that made to be the best golfer and person I can be. I look forward to the day we start our journey to make you a better golfer!",
         },
         {
-            name: "Calvin Maranville, PGA",
-            title: "Instructor",
+            name: "Calvin Maranville",
+            title: "Lead Instructor",
+            titleSuffix: "PGA",
             imageSrc: "/calvin-maranville-pga-beach-city-golf.jpg",
             imageAlt: "Headshot of Calvin Maranville, PGA",
             buttonLabel: "Get Me Started",
@@ -59,8 +61,16 @@ const { heading, theme, coaches } = coachesData;
             <div class="coaches-image">
               <img src={coach.imageSrc} alt={coach.imageAlt}>
             </div>
-            {coach.name && <h4 class="coaches-name">{coach.name}</h4>}
-            {coach.title && <p class="coaches-title">{coach.title}</p>}
+            {coach.name && 
+                <h4 class="coaches-name">
+                    {coach.name}{coach.titleSuffix !== "" ? `, ${coach.titleSuffix}` : ""}
+                </h4>
+            }
+            {coach.title && 
+                <p class="coaches-title">
+                    {coach.title}
+                </p>
+            }
             {coach.buttonLabel && (
               <div class="coaches-controls">
                 <a href={coach.buttonURL} class="button button--blue">{coach.buttonLabel}</a>
