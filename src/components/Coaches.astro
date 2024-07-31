@@ -1,5 +1,8 @@
 ---
 import { Image } from 'astro:assets';
+import DevanImage from "../../src/assets/images/devan-membership.jpg";
+import JackImage from "../../src/assets/images/jack-henneberry-beach-city-golf.jpg";
+import CalvinImage from "../../src/assets/images/calvin-maranville-pga-beach-city-golf.jpg";
 export interface Coach {
     name: string;
     title: string;
@@ -22,7 +25,7 @@ const coachesData = {
         {
             name: "Devan Bonebrake",
             title: "Owner",
-            imageSrc: "../../src/assets/images/devon-membership.jpg",
+            imageSrc: DevanImage,
             imageAlt: "Headshot of Devan Bonebrake",
             buttonLabel: "Get Me Started",
             buttonURL: "https://generalstudentbooking.as.me/DevanBonebrakeLesson",
@@ -31,7 +34,7 @@ const coachesData = {
         {
             name: "Jack Henneberry",
             title: "Director of Instruction",
-            imageSrc: "/jack-henneberry-beach-city-golf.jpg",
+            imageSrc: JackImage,
             imageAlt: "Headshot of Jack Henneberry",
             buttonLabel: "Get Me Started",
             buttonURL: "https://generalstudentbooking.as.me/JackHenneberryNSA",
@@ -41,7 +44,7 @@ const coachesData = {
             name: "Calvin Maranville",
             title: "Lead Instructor",
             titleSuffix: "PGA",
-            imageSrc: "/calvin-maranville-pga-beach-city-golf.jpg",
+            imageSrc: CalvinImage,
             imageAlt: "Headshot of Calvin Maranville, PGA",
             buttonLabel: "Get Me Started",
             buttonURL: "https://generalstudentbooking.as.me/CalvinMaranvilleNSA",
@@ -60,7 +63,7 @@ const { heading, theme, coaches } = coachesData;
         {coaches && Array.isArray(coaches) && coaches.map((coach, index) => (
           <div class="coaches-card" id={`coach-card-${index}`}>
             <div class="coaches-image">
-              <img src={coach.imageSrc} alt={coach.imageAlt}>
+              <Image src={coach.imageSrc} alt={coach.imageAlt || 'Card image'} />
             </div>
             {coach.name && 
                 <h4 class="coaches-name">

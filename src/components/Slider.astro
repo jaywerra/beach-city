@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 export interface Slide {
     imageSrc: string;
     imageAlt?: string;
@@ -20,7 +21,7 @@ const { id, theme, slides } = Astro.props;
             {slides && Array.isArray(slides) && slides.map((slide, index) => (
                 <div class="slider-slide splide__slide" key={index}>
                     <div class="slider-image">
-                        <img src={slide.imageSrc} alt={slide.imageAlt || ''} />
+                        <Image src={slide.imageSrc} alt={slide.imageAlt || ''} />
                     </div>
                     <div class="slider-copy">
                         <h2>{slide.title}</h2>
