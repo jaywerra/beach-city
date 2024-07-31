@@ -5,20 +5,25 @@ import Cards, { Props } from '../components/Cards.astro';
 import Slider from '../components/Slider.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
-
+import heroVideo from "/src/assets/videos/taylormade-fitting.mp4"
 const heroProps = {
 	quoteHeader: "Unlock Your Perfect Fit with Our Professional Fitters and Experience the Difference a Custom Fit Can Make.",
 	primaryButtonLabel: "Book Your Fitting",
 	primaryButtonLink: "https://generalstudentbooking.as.me/schedule.php?appointmentType=54195413",
-    videoUrl: "/taylormade-fitting.mp4",
+    videoUrl: `${heroVideo}`,
 };
+
+import TaylorMadeImageOne from "/src/assets/images/TM24FAM_Qi10_Core_Family_Lightspeed_3Q_OSN_v1.jpg";
+import TaylorMadeImageTwo from "/src/assets/images/TM24IRN-TC557-Qi-Iron-Chart-001-v1.jpg";
+import TaylorMadeImageThree from "/src/assets/images/TM23IRN-F498-N2780109-P790-LFS-JPO-02645-V1.jpg";
+import TaylorMadeImageFour from "/src/assets/images/TM23WDG-TC518-MG4-Chrome-FAM-BMWMG45443-v1.jpg";
 
 const cardsDataUpper: Props = {
     reverseLayout: true,
 	cards: {
 	  fullWidth: [
 		{
-		  imageSrc: "/TM24FAM_Qi10_Core_Family_Lightspeed_3Q_OSN_v1.jpg",
+		  imageSrc: TaylorMadeImageOne,
 		  imageAlt: "",
 		  description: [
 		  	"The Taylormade Qi10 Family has you covered from the most Moment of Interia (MOI) Qi10 Max models to the most precise Qi10 Tour Line.",
@@ -33,7 +38,7 @@ const cardsDataMiddle: Props = {
 	cards: {
 	  fullWidth: [
 		{
-		  imageSrc: "/TM24IRN-TC557-Qi-Iron-Chart-001-v1.jpg",
+		  imageSrc: TaylorMadeImageTwo,
 		  imageAlt: "",
 		  description: [
 		  	"The Qi10 irons stand out on their own as each iron head is individual designed to produce more forgiveness and the optimal launching conditions.",
@@ -48,7 +53,7 @@ const cardsDataLower: Props = {
 	cards: {
 	  fullWidth: [
 		{
-		  imageSrc: "/TM23IRN-F498-N2780109-P790-LFS-JPO-02645-V1.jpg",
+		  imageSrc: TaylorMadeImageThree,
 		  imageAlt: "",
 		  description: [
 		  	"The new P790 irons pave the way with their best in industry speed foam forged irons with each iron head being developed to achieve the best performance for every golfer.",
@@ -63,7 +68,7 @@ const cardsDataLast: Props = {
 	cards: {
 	  fullWidth: [
 		{
-		  imageSrc: "/TM23WDG-TC518-MG4-Chrome-FAM-BMWMG45443-v1.jpg",
+		  imageSrc: TaylorMadeImageFour,
 		  imageAlt: "",
 		  description: [
 		  	"The new Milled Grind 4 (MG4) wedges come in a variety of lofts, grinds and bounces to meet your short game needs. Including the low bounce V grind, standard bounce C grind and the high bounce W grind",

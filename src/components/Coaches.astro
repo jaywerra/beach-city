@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 export interface Coach {
     name: string;
     title: string;
@@ -21,7 +22,7 @@ const coachesData = {
         {
             name: "Devan Bonebrake",
             title: "Owner",
-            imageSrc: "/devon-membership.jpg",
+            imageSrc: "../../src/assets/images/devon-membership.jpg",
             imageAlt: "Headshot of Devan Bonebrake",
             buttonLabel: "Get Me Started",
             buttonURL: "https://generalstudentbooking.as.me/DevanBonebrakeLesson",

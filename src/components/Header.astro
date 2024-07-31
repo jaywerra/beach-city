@@ -1,45 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import logo from "/src/assets/images/bcg-logo.png";
+const navLinks = [
+    {
+        path: "/day-passes/",
+        label: "Day Passes"
+    },
+    {
+        path: "/memberships/",
+        label: "Golf Lessons"
+    },
+    {
+        path: "/golf-technology/",
+        label: "Technology"
+    },
+    {
+        path: "/about/",
+        label: "About Us"
+    },
+    {
+        path: "/club-fitting/",
+        label: "Club Fitting"
+    }
+]
+---
+
 <header class="header">
     <div class="container">
         <div class="header-brand">
             <a href="/" class="header-logo logo">
-                <img src="/bcg-logo.png" alt="">
+                <Image src={logo} alt="Beach City Golf Logo" />
             </a>
         </div>
         <div class="header-nav">
             <nav>
                 <ul>
-                    <li>
-                        <a href="/day-passes/">
-                            Day Passes
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/memberships/">
-                            Golf Lessons
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/golf-technology/">
-                            Technology
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/about/">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/club-fitting/">
-                            Club Fitting
-                        </a>
-                    </li>
+                    {navLinks.map(link => {
+                        return (
+                            <li>
+                                <a href={link.path}>
+                                    {link.label}
+                                </a>
+                            </li>
+                        )
+                    })}
                 </ul>
             </nav>
         </div>
         <div class="header-controls">
             <ul>
                 <li>
-                    <a href="#" class="call-us">310-439-9002</a>
+                    <a href="#" class="call-us">
+                        310-439-9002
+                    </a>
                 </li>
                 <li>
                     <a href="https://app.squarespacescheduling.com/schedule.php?owner=21968379&appointmentType=category:BCGC%20Getting%20Started%20%2F%20Member%20Practice%3A%20Hermosa%20Beach%2C%20Ca" class="button button--blue" target="_blank">

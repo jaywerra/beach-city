@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 export interface Card {
   imageSrc?: string;
   imageAlt?: string;
@@ -42,7 +43,7 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
           <div class="card">
             {card.imageSrc && (
               <div class="card-image">
-                <img src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
+                <Image src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
               </div>
             )}
             <div class="card-copy">
@@ -72,7 +73,7 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
           <div class="card card-fullwidth">
             {card.imageSrc && (
               <div class="card-image">
-                <img src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
+                <Image src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
               </div>
             )}
             <div class="card-copy">

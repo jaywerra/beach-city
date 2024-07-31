@@ -7,12 +7,18 @@ import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
 import Reviews from "../components/Reviews.astro";
 import SellingPoints from "../components/SellingPoints.astro";
+import heroVideo from "/src/assets/videos/beach-city-golf-sizzle.mp4"
+import golfCourseImage from "/src/assets/images/golf-course-drone.jpg";
+import memberForADayImage  from "../../src/assets/images/member-for-a-day.jpg";
+import DevonImage from "../../src/assets/images/devon-membership.jpg";
+import newStudentImage from "../../src/assets/images/new-student-60-min.jpg";
+
 const heroProps = {
 	quoteHeader: "“Perfection is not attainable, but if we chase perfection we can catch excellence.”",
 	quoteAuthor: "- Vince Lombardi",
 	primaryButtonLabel: "Book a $49 Member for a Day Pass",
 	primaryButtonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC",
-	videoUrl: "/beach-city-golf-sizzle.mp4",
+	videoUrl: `${heroVideo}`,
 	ribbon: {
 	  header: "Already a Member?",
 	  buttonLabel: "Book a Session",
@@ -27,7 +33,7 @@ const cardsData: Props = {
   cards: {
     halfWidth: [
       {
-        imageSrc: "/member-for-a-day.jpg",
+        imageSrc: memberForADayImage,
         imageAlt: "",
         title: "\"Member For A Day Pass\" Demo",
         price: "$49",
@@ -40,7 +46,7 @@ const cardsData: Props = {
         buttonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC"
       },
       {
-        imageSrc: "/new-student-60-min.jpg",
+        imageSrc: newStudentImage,
         imageAlt: "",
         title: "“New Student” 60min Lesson/Assessment",
         price: "$149",
@@ -51,7 +57,7 @@ const cardsData: Props = {
     ],
     fullWidth: [
       {
-        imageSrc: "/devon-membership.jpg",
+		imageSrc: DevonImage,
         imageAlt: "",
         title: "Lesson with Devan Bonebrake Host of GolfFix on GolfPass",
         price: "$300",
@@ -74,7 +80,7 @@ const cardsDataLower: Props = {
 	cards: {
 	  fullWidth: [
 		{
-		  imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		  imageSrc: golfCourseImage,
 		  imageAlt: "",
 		  title: "Our Mission Is Your Success",
 		  description: [
@@ -119,40 +125,12 @@ const cardsDataLower: Props = {
 	  },
 	]
   };
-  
-  const sliderData2 = {
-	id: "2",
-	theme: "light",
-	slides: [
-	  {
-		imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		title: "Trackman Launch Monitor",
-		content: [
-		  "Ranked #1 Launch Monitor in the industry. It offers the most accurate numbers for ball, club, and face data before, during, and after impact. In addition, it features challenging skills tests and fun games.",
-		],
-	  },
-	  {
-		imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		title: "The PuttView Putting System",
-		content: [
-		  "Is the ultimate in addictive and engaging training sessions with fun skills tests, games, and much more!"
-		],
-	  },
-	  {
-		imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		title: "V1 Golf Swing Analysis Software Features:",
-		content: [
-		  "Professional golfers use this technology to improve as fast and effectively as possible. Now you can have that same advantage!"
-		],
-	  },
-	]
-  };
 
   const cardsDataLower2: Props = {
 	cards: {
 	  fullWidth: [
 		{
-		  imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		  imageSrc: golfCourseImage,
 		  imageAlt: "",
 		  title: "Our Mission Is Your Success",
 		  description: [

@@ -6,7 +6,7 @@ import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
 
 const heroProps = {
-	quoteHeader: "Golf Memberships",
+	quoteHeader: "Golf Lessons",
 	primaryButtonLabel: "Book a $49 Member for a Day Pass",
 	primaryButtonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC",
 	ribbon: {
@@ -16,6 +16,9 @@ const heroProps = {
 	}
 };
 
+import playerSwingingClub from "/src/assets/images/player-swinging-dark-bg.jpg";
+import jackTrackman from "/src/assets/images/jack-hitting-trackman.jpg";
+
 const cardsData: Props = {
     header: {
       title: "The Easiest Way To Get Started Now At The Beach City Golf Club Is Simply Select One Of The Following Options:",
@@ -23,7 +26,7 @@ const cardsData: Props = {
     cards: {
       halfWidth: [
         {
-          imageSrc: "/player-swinging-dark-bg.jpg",
+          imageSrc: playerSwingingClub,
           imageAlt: "",
           title: "\"Member For A Day Pass\" Demo",
           price: "$49",
@@ -36,7 +39,7 @@ const cardsData: Props = {
           buttonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC"
         },
         {
-          imageSrc: "/jack-hitting-trackman.jpg",
+          imageSrc: jackTrackman,
           imageAlt: "",
           title: "“New Student” 60min Lesson/Assessment",
           price: "$149",
