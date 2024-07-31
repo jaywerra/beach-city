@@ -67,7 +67,7 @@ const { heading, theme, coaches } = coachesData;
             </div>
             {coach.name && 
                 <h4 class="coaches-name">
-                    {coach.name}{coach.titleSuffix !== "" ? `, ${coach.titleSuffix}` : ""}
+                    {coach.name}{coach.titleSuffix && `, ${coach.titleSuffix}`}
                 </h4>
             }
             {coach.title && 
