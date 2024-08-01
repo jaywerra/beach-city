@@ -84,7 +84,7 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
               }
               {card.features && (
                 <>
-                  <h4>What you get</h4>
+                  <p class="small-heading">What you get</p>
                   <ul>
                     {card.features.map(feature => (
                       <li>{feature}</li>
@@ -236,7 +236,7 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
                         object-fit: cover;
                     }
                 }
-                h4 {
+                .small-heading {
                     margin: 24px 0 0;
                     color: var(--blue100);
                     font-size: 20px;

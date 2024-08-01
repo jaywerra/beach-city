@@ -21,6 +21,7 @@ const { quoteHeader, quoteAuthor, primaryButtonLabel, primaryButtonLink, videoUr
   {videoUrl && (
     <video class="hero-video" autoplay muted loop playsinline>
       <source src={videoUrl} type="video/mp4" />
+      <track src="/src/assets/vtt/sizzle.vtt" kind="captions" srclang="en" label="English">
       Your browser does not support the video tag.
     </video>
   )}
