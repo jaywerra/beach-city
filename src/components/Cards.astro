@@ -49,6 +49,9 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
             <div class="card-copy">
               {card.title && <h2>{card.title}</h2>}
               {card.price && <p class="card-pill">{card.price}</p>}
+              {card.description && 
+                card.description.map(paragraph => <p>{paragraph}</p>)
+              }
               {card.features && (
                 <ul>
                   {card.features.map(feature => (
