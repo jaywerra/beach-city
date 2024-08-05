@@ -323,8 +323,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const desktopBios = document.querySelectorAll('.coaches-bio-desktop .coach-bio');
 
     // Initially set all bios to hidden with GSAP
-    gsap.set(mobileBios, { autoAlpha: 0, height: 0 });
-    gsap.set(desktopBios, { autoAlpha: 0, height: 0 });
+    gsap.set(mobileBios, { autoAlpha: 0, height: 0, overflow: 'hidden' });
+    gsap.set(desktopBios, { autoAlpha: 0, height: 0, overflow: 'hidden' });
 
     // Debounce function to prevent multiple rapid clicks
     function debounce(func, wait) {
@@ -351,7 +351,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const bios = isMobile ? mobileBios : desktopBios;
 
             if (!this.classList.contains("expanded")) {
-                buttons.forEach(button => button.classList.remove("expanded"));
+                if (!isMobile) {
+                    buttons.forEach(button => button.classList.remove("expanded"));
+                    bios.forEach(bio => bio.classList.remove("active"));
+                    gsap.to(bios, {
+                        duration: 0.5,
+                        autoAlpha: 0,
+                        height: 0,
+                        overflow: 'hidden',
+                        ease: "power2.inOut"
+                    });
+                }
                 this.classList.add("expanded");
                 document.querySelector(".coaches-bio").classList.add("expanded");
                 this.parentNode.nextElementSibling.classList.add("expanded");
@@ -362,20 +372,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (!bio.classList.contains("active")) {
-                bios.forEach(bio => bio.classList.remove("active"));
-                gsap.to(bios, {
-                    duration: 0.5,
-                    autoAlpha: 0,
-                    height: 0,
-                    ease: "power2.inOut"
-                });
-
                 bio.classList.add("active");
                 gsap.to(bio, {
                     duration: 0.5,
                     autoAlpha: 1,
                     height: "auto",
-                    ease: "power2.inOut"
+                    overflow: 'visible',
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        button.focus();
+                    }
                 });
             } else {
                 bio.classList.remove("active");
@@ -383,7 +389,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     duration: 0.5,
                     autoAlpha: 0,
                     height: 0,
-                    ease: "power2.inOut"
+                    overflow: 'hidden',
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        button.focus();
+                    }
                 });
             }
         }, 250)); // Debounce wait time set to 250ms
@@ -392,12 +402,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle window resize
     window.addEventListener('resize', debounce(() => {
         buttons.forEach(button => button.classList.remove('expanded'));
-        gsap.set(mobileBios, { autoAlpha: 0, height: 0 });
-        gsap.set(desktopBios, { autoAlpha: 0, height: 0 });
+        gsap.set(mobileBios, { autoAlpha: 0, height: 0, overflow: 'hidden' });
+        gsap.set(desktopBios, { autoAlpha: 0, height: 0, overflow: 'hidden' });
 
         mobileBios.forEach(bio => bio.classList.remove('active'));
         desktopBios.forEach(bio => bio.classList.remove('active'));
         document.querySelectorAll(".coaches-bio").forEach(bio => bio.classList.remove("expanded"));
     }, 250));
 });
+
+
 </script>

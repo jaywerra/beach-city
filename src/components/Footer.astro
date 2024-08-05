@@ -74,8 +74,10 @@
                 text-decoration: underline;
                 transition: linear 0.25s;
 
-                &:hover {
-                    color: var(--blue100);
+                @media(hover: hover) and (pointer: fine) {
+                    &:hover {
+                        color: var(--blue100);
+                    }
                 }
             }
         }
@@ -88,9 +90,11 @@
             a {
                 display: inline-block;
 
-                &:hover {
-                    svg {
-                        fill: var(--blue100);
+                @media(hover: hover) and (pointer: fine) {
+                    &:hover {
+                        svg {
+                            fill: var(--blue100);
+                        }
                     }
                 }
                 svg {

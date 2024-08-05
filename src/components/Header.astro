@@ -144,8 +144,10 @@ const navLinks = [
                         color: var(--white);
                     }
 
-                    &:hover {
-                        color: var(--blue100);
+                    @media(hover: hover) and (pointer: fine) {
+                        &:hover {
+                            color: var(--blue100);
+                        }
                     }
                 }
             }
@@ -154,9 +156,10 @@ const navLinks = [
                 ul {
                     a {
                         color: var(--black);
-
-                        &:hover {
-                            color: var(--blue100);
+                        @media(hover: hover) and (pointer: fine) {
+                            &:hover {
+                                color: var(--blue100);
+                            }
                         }
                     }
                 }

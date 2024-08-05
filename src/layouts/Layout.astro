@@ -155,9 +155,11 @@ import Footer from '../components/Footer.astro';
 			border: 1px solid var(--white);
 			color: var(--white);
 
-			&:hover {
-				background: var(--white);
-				color: var(--black);
+			@media(hover: hover) and (pointer: fine) {
+				&:hover {
+					background: var(--white);
+					color: var(--black);
+				}
 			}
 		}
 	}
