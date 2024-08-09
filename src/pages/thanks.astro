@@ -1,0 +1,100 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Contact from "../components/Contact.astro";
+const heroProps = {
+	quoteHeader: "Submission Received",
+    shortBanner: true,
+};
+---
+<Layout title="BCG">
+	<main>
+        <Hero {...heroProps} />
+        <div class="contact-cols">
+            <div class="container">
+                <div class="contact-col">
+                    <p>
+                        We have received your submission and will be in contact with you shortly. If you prefer to speak with someone sooner, please don't hesitate to give us a call.
+                    </p>
+                </div>
+                <div class="contact-col">
+                    <h3>
+                        Swing By Our Location:
+                    </h3>
+                    <ul class="contact-list">
+                        <li>
+                            Beach City Golf Club
+                        </li>
+                        <li>
+                            914 Aviation Blvd.
+                        </li>
+                        <li>
+                            Hermosa Beach, CA 90254
+                        </li>
+                    </ul>
+                    <a class="text-arrow-cta" href="https://www.google.com/maps/dir/34.1309898,-116.0295668/914+Aviation+Blvd,+Hermosa+Beach,+CA+90254/@34.1885541,-118.3901814,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x80c2b48196b3d2c3:0xd9d036b9083b3e27!2m2!1d-118.3910931!2d33.8629746" target="__blank" rel="noopener">
+                        Directions <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Pro 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path d="M440.6 273.4c4.7-4.5 7.4-10.8 7.4-17.4s-2.7-12.8-7.4-17.4l-176-168c-9.6-9.2-24.8-8.8-33.9 .8s-8.8 24.8 .8 33.9L364.1 232 24 232c-13.3 0-24 10.7-24 24s10.7 24 24 24l340.1 0L231.4 406.6c-9.6 9.2-9.9 24.3-.8 33.9s24.3 9.9 33.9 .8l176-168z"/></svg>
+                    </a>
+                    <h3>
+                        Hours:
+                    </h3>
+                    <ul class="contact-list">  
+                        <li>
+                            Monday 8am - 6pm
+                        </li>
+                        <li>
+                            Tuesday - Friday 8am - 8pm
+                        </li>
+                        <li>
+                            Saturday 9am - 6pm
+                        </li>
+                    </ul>
+                    <a class="text-arrow-cta" href="tel:3104399002" target="__blank" rel="noopener">
+                        Phone
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Pro 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path d="M96 32C78.3 32 64 46.3 64 64l0 384c0 17.7 14.3 32 32 32l192 0c17.7 0 32-14.3 32-32l0-384c0-17.7-14.3-32-32-32L96 32zM32 64C32 28.7 60.7 0 96 0L288 0c35.3 0 64 28.7 64 64l0 384c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64L32 64zM160 400l64 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-64 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+	</main>
+</Layout>
+
+<style>
+    .contact-cols {
+        padding: 40px 0;
+        background: var(--white);
+
+        @media (min-width: 750px) {
+            padding: 64px 0;
+        }
+    }
+
+    .contact-cols .container {
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 750px) {
+            flex-direction: row;
+            gap: 40px;
+        }
+
+        .contact-col {
+            @media (min-width: 750px) {
+                width: 50%;
+            }
+        }
+    }
+
+    p {
+        max-width: 90%;
+        font-size: 24px;
+    }
+
+    .contact-list {
+        padding-left: 0;
+
+        li {
+            font-size: 20px;
+        }
+    }
+</style>
