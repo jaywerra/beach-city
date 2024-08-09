@@ -6,7 +6,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://astro-article.netlify.app/',
+	site: 'https://beach-city.vercel.app/',
+	output: 'hybrid',
 	integrations: [
 		mdx(), 
 		sitemap(),

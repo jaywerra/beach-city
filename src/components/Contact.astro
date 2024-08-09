@@ -1,0 +1,77 @@
+---
+export const prerender = false;
+---
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<form action="https://submit-form.com/wfIjMGY2U">
+    <div class="form-row">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Name" required="" />
+    </div>
+    <div class="form-row">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="Phone" required="" />
+    </div>
+    <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email" required="" />
+    </div>
+    <div class="form-row">
+        <label for="message">Message</label>
+        <textarea
+            id="message"
+            name="message"
+            placeholder="Message"
+            required=""
+        ></textarea>
+    </div>
+    <input type="hidden" name="_email.subject" value="Website Submission" />
+    <input type="hidden" name="_email.from" value="Beach City Golf Website" />
+    <div class="form-row">
+        <div class="g-recaptcha" data-sitekey="6LdBySIqAAAAAPJsAA6cWZ2QM3pgYh0BIb2b3c5T"></div>
+    </div>
+    <div class="form-row">
+        <button type="submit" class="button button--blue">
+            Send
+        </button>
+    </div>
+</form>
+
+<style>
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+
+        label {
+            position:absolute;
+            left:-10000px;
+            top:auto;
+            width:1px;
+            height:1px;
+            overflow:hidden;
+        }
+
+        input,
+        textarea {
+            padding: 8px;
+            width: 100%;
+            color: var(--black);
+            font-family: "proxima-nova", sans-serif;
+            font-size: 18px;
+
+            &::placeholder {
+                color: var(--black);
+            }
+        }
+
+        textarea {
+            min-height: 250px;
+            resize: none;
+        }
+
+        button {
+
+        }
+    }
+</style>

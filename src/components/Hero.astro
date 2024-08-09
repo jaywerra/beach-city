@@ -13,11 +13,12 @@ export interface HeroProps {
   videoUrl?: string;
   backgroundImageUrl?: string;
   ribbon?: RibbonProps;
+  shortBanner?: boolean;
 }
 
-const { quoteHeader, quoteAuthor, primaryButtonLabel, primaryButtonLink, videoUrl, backgroundImageUrl, ribbon } = Astro.props as HeroProps;
+const { quoteHeader, quoteAuthor, shortBanner, primaryButtonLabel, primaryButtonLink, videoUrl, backgroundImageUrl, ribbon } = Astro.props as HeroProps;
 ---
-<section class="hero" style={`background-image: url('${!videoUrl && backgroundImageUrl ? backgroundImageUrl : ''}')`}>
+<section class=`hero ${shortBanner === true ? 'hero--short': '' }` style={`background-image: url('${!videoUrl && backgroundImageUrl ? backgroundImageUrl : ''}')`}>
   {videoUrl && (
     <video class="hero-video" autoplay muted loop playsinline>
       <source src={videoUrl} type="video/mp4" />
@@ -27,7 +28,9 @@ const { quoteHeader, quoteAuthor, primaryButtonLabel, primaryButtonLink, videoUr
   )}
   <div class="container">
     <h1 class="quote-header">{quoteHeader}</h1>
-    <p class="quote-author">{quoteAuthor}</p>
+    {quoteAuthor && (
+      <p class="quote-author">{quoteAuthor}</p>
+    )}
     {primaryButtonLink && (
       <a href={primaryButtonLink} class="button button--blue">
         {primaryButtonLabel}
@@ -58,6 +61,11 @@ const { quoteHeader, quoteAuthor, primaryButtonLabel, primaryButtonLink, videoUr
         width: 100%;
         background: rgba(0, 0, 0, 0.35);
         content: "";
+    }
+
+    &.hero--short {
+      height: 50vh;
+      min-height: 300px;
     }
     .container {
         display: flex;

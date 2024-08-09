@@ -164,6 +164,43 @@ import Footer from '../components/Footer.astro';
 		}
 	}
 
+	.text-arrow-cta {
+		position: relative;
+		color: var(--blue100);
+		font-size: 20px;;
+		font-weight: bold;
+
+		&:after {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background: transparent);
+			content: "";
+			transition: ease 0.25s;
+		}
+
+		@media(hover: hover) and (pointer: fine) {
+			&:hover {
+				&::after {
+					background: var(--blue100);
+				}
+			}
+		}
+
+		svg {
+			position: absolute;
+			top: 50%;
+			height: 17px;
+			margin-top: 1px;;
+			margin-left: 6px;
+			width: 20px;
+			fill: var(--blue100);
+			transform: translateY(-50%);
+		}
+	}
+
 	.bg-gradient-blue {
 		background-image: var(--background-blue-gradient);
 	}
