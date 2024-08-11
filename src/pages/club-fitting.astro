@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import Head from "../components/Head.astro";
 import Cards, { Props } from '../components/Cards.astro';
 import Slider from '../components/Slider.astro';
 import Coaches from '../components/Coaches.astro';
@@ -28,6 +29,8 @@ const cardsDataUpper: Props = {
 		  description: [
 		  	"The Taylormade Qi10 Family has you covered from the most Moment of Interia (MOI) Qi10 Max models to the most precise Qi10 Tour Line.",
 		  ],
+		  buttonText: "Sign Up For A Fitting",
+          buttonLink: "https://generalstudentbooking.as.me/schedule.php?appointmentType=54195413"
 		},
 	  ]
 	}
@@ -43,6 +46,8 @@ const cardsDataMiddle: Props = {
 		  description: [
 		  	"The Qi10 irons stand out on their own as each iron head is individual designed to produce more forgiveness and the optimal launching conditions.",
 		  ],
+		  buttonText: "Sign Up For A Fitting",
+          buttonLink: "https://generalstudentbooking.as.me/schedule.php?appointmentType=54195413"
 		},
 	  ]
 	}
@@ -58,6 +63,8 @@ const cardsDataLower: Props = {
 		  description: [
 		  	"The new P790 irons pave the way with their best in industry speed foam forged irons with each iron head being developed to achieve the best performance for every golfer.",
 		  ],
+		  buttonText: "Sign Up For A Fitting",
+          buttonLink: "https://generalstudentbooking.as.me/schedule.php?appointmentType=54195413"
 		},
 	  ]
 	}
@@ -73,6 +80,8 @@ const cardsDataLast: Props = {
 		  description: [
 		  	"The new Milled Grind 4 (MG4) wedges come in a variety of lofts, grinds and bounces to meet your short game needs. Including the low bounce V grind, standard bounce C grind and the high bounce W grind",
 		  ],
+		  buttonText: "Sign Up For A Fitting",
+          buttonLink: "https://generalstudentbooking.as.me/schedule.php?appointmentType=54195413"
 		},
 	  ]
 	}
@@ -86,6 +95,14 @@ const items = [
 ---
 
 <Layout title="BCG">
+	<Head
+		title="Your Page Title"
+		description="Your page description goes here."
+		keywords="keyword1, keyword2, keyword3"
+		author="Author Name"
+		image="https://yourwebsite.com/image.jpg"
+		url="https://yourwebsite.com/page-url"
+	/>
 	<main>
 		<Hero {...heroProps} />
         <Cards {...cardsDataUpper} />

@@ -63,6 +63,10 @@ const { quoteHeader, quoteAuthor, shortBanner, primaryButtonLabel, primaryButton
         content: "";
     }
 
+    @media (min-width: 1400px) {
+      height: 95vh;
+    }
+
     &.hero--short {
       height: 50vh;
       min-height: 300px;
@@ -114,13 +118,22 @@ const { quoteHeader, quoteAuthor, shortBanner, primaryButtonLabel, primaryButton
             max-width: 720px;
         }
         @media (min-width: 1400px) {
+            max-width: 1060px;
+            font-size: 60px;
+        }
+
+        @media (min-width: 1800px) {
             max-width: 1160px;
             font-size: 64px;
         }
     }
 
+    .button {
+      margin-top: 32px;
+    }
+
     .quote-author {
-        margin: 5px auto 40px;
+        margin: 5px auto 6px;
         color: var(--white);
         font-family: "proxima-nova-extra-condensed", sans-serif;
         font-size: 24px;
@@ -158,12 +171,15 @@ const { quoteHeader, quoteAuthor, shortBanner, primaryButtonLabel, primaryButton
               left: 50%;
               flex-direction: row;
               max-width: 1600px;
-              width: 98%;
               transform: translateX(-50%);
           }
 
           @media (min-width: 900px) {
               padding: 48px 64px;
+          }
+
+          .button {
+            margin: 0;
           }
 
           h2 {

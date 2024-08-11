@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import Head from "../components/Head.astro";
 import Cards, { Props } from '../components/Cards.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
@@ -10,7 +11,7 @@ const heroProps = {
 	primaryButtonLabel: "Book a $49 Member for a Day Pass",
 	primaryButtonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC",
 	ribbon: {
-	  header: "Already a Member?",
+	  header: "Already a Practice Member?",
 	  buttonLabel: "Book a Session",
 	  buttonLink: "https://generalstudentbooking.as.me/MemberPractice"
 	}
@@ -58,7 +59,7 @@ const cardsData: Props = {
             "PuttView + BCGC Coach = Read/Line/Speed dialed like a pro!",
           ],
           buttonText: "Book Now",
-          buttonLink: "https://generalstudentbooking.as.me/BCGCGetStartedNSAandPracticeOptions"
+          buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1557010"
         },
       ],
       fullWidth: [
@@ -75,7 +76,7 @@ const cardsData: Props = {
                     "All your favorite golf teaching aids"
                 ],
                 buttonText: "Get me started",
-                buttonLink: "https://app.squarespacescheduling.com/catalog.php?action=checkout&owner=21968379&back=%2Fcatalog.php%3Fowner%3D21968379%26back%3D%252Fschedule.php%253Fowner%253D21968379%2526appointmentType%253Dcategory%25253ABCGC%252BGetting%252BStarted%252B%25252F%252BMember%252BPractice%25253A%252BHermosa%252BBeach%25252C%252BCa&PHPSESSID=gkrdc55egmck6sdk2hcg98cbl8&"
+                buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1624330"
             }
         ]
     }
@@ -84,6 +85,15 @@ const cardsData: Props = {
 ---
 
 <Layout title="BCG">
+  <Head
+    title="Your Page Title"
+    description="Your page description goes here."
+    keywords="keyword1, keyword2, keyword3"
+    author="Author Name"
+    image="https://yourwebsite.com/image.jpg"
+    url="https://yourwebsite.com/page-url"
+    additionalScripts={["https://example.com/script1.js", "https://example.com/script2.js"]}
+  />
 	<main>
 		<Hero {...heroProps} />
         <Cards {...cardsData} />

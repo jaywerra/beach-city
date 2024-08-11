@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from "/src/assets/images/bcg-logo.png";
+const currentUrl = Astro.url.pathname;
 const navLinks = [
     {
         path: "/day-passes/",
@@ -39,15 +40,13 @@ const navLinks = [
         <div class="header-nav">
             <nav>
                 <ul>
-                    {navLinks.map(link => {
-                        return (
-                            <li>
-                                <a href={link.path}>
-                                    {link.label}
-                                </a>
-                            </li>
-                        )
-                    })}
+                    {navLinks.map(link => (
+                        <li class={currentUrl === link.path ? 'active' : ''}>
+                            <a href={link.path}>
+                                {link.label}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </div>
@@ -133,6 +132,12 @@ const navLinks = [
 
                 @media (min-width: 1350px) {
                     gap: 30px;
+                }
+
+                li.active  {
+                    a {
+                        color: var(--blue100);
+                    }
                 }
 
                 a {

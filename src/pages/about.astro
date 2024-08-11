@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Cards, { Props } from '../components/Cards.astro';
+import Head from "../components/Head.astro";
 import Slider from '../components/Slider.astro';
+import TextBlock from '../components/TextBlock.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
 import heroVideo from "/src/assets/videos/beach-city-golf-sizzle.mp4";
@@ -10,7 +12,7 @@ const heroProps = {
 	quoteHeader: "About Beach City Golf Club",
     videoUrl: `${heroVideo}`,
 	ribbon: {
-	  header: "Already a Member?",
+	  header: "Already a Practice Member?",
 	  buttonLabel: "Book a Session",
 	  buttonLink: "https://generalstudentbooking.as.me/MemberPractice"
 	}
@@ -49,13 +51,29 @@ const cardsData: Props = {
       ],
     }
   };
+
+  const IntroBody: Props = {
+    extraPadding: true,
+    heading: "Our Mission",
+    body: "Beach City Golf Club offers you personalized instruction, a state-of-the-art golf simulator, and Putting Training technology that provides a convenient, time-efficient means to improve your game and practice with awareness."
+  }
 ---
 
 <Layout title="BCG">
+  <Head
+    title="Your Page Title"
+    description="Your page description goes here."
+    keywords="keyword1, keyword2, keyword3"
+    author="Author Name"
+    image="https://yourwebsite.com/image.jpg"
+    url="https://yourwebsite.com/page-url"
+    additionalScripts={["https://example.com/script1.js", "https://example.com/script2.js"]}
+  />
 	<main>
 		<Hero {...heroProps} />
-        <Coaches />
-        <Cards {...cardsData} />
+    <TextBlock { ...IntroBody } />
+    <Coaches />
+    <Cards {...cardsData} />
 	</main>
 </Layout>
 

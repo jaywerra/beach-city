@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Head from "../components/Head.astro";
 import Contact from "../components/Contact.astro";
 const heroProps = {
 	quoteHeader: "Contact Us",
@@ -8,6 +9,15 @@ const heroProps = {
 };
 ---
 <Layout title="BCG">
+    <Head
+        title="Your Page Title"
+        description="Your page description goes here."
+        keywords="keyword1, keyword2, keyword3"
+        author="Author Name"
+        image="https://yourwebsite.com/image.jpg"
+        url="https://yourwebsite.com/page-url"
+        additionalScripts={["https://example.com/script1.js", "https://example.com/script2.js"]}
+    />
 	<main>
         <Hero {...heroProps} />
         <div class="contact-cols">

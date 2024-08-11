@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Cards, { Props } from '../components/Cards.astro';
+import Head from "../components/Head.astro";
 import Callout from '../components/Callout.astro';
 import Reviews from "../components/Reviews.astro";
 const heroProps = {
@@ -10,63 +11,105 @@ const heroProps = {
 	// primaryButtonLabel: "Book a $49 Member for a Day Pass",
 	// primaryButtonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC",
 	ribbon: {
-	  header: "Already a Member?",
+	  header: "Already a Practice Member?",
 	  buttonLabel: "Book a Session",
 	  buttonLink: "https://generalstudentbooking.as.me/MemberPractice"
 	}
 };
 
-const cardsData: Props = {
+  const items = [
+	'60 min <strong>MEMBER FOR A DAY PASS (DEMO)</strong>',
+	'60 min Assessment/Lesson with one of our Elite Coaches.'
+	];
+
+  const cardsData: Props = {
     header: {
       title: "The Easiest Way To Get Started Now At The Beach City Golf Club Is Simply Select One Of The Following Options:",
     },
     cards: {
       halfWidth: [
         {
-          imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          imageSrc: playerSwingingClub,
           imageAlt: "",
-          title: "\"Member For A Day Pass\" Demo",
-          price: "$49",
+          title: "Perform 2 Private Lesson Membership",
+          price: "$250/month",
+          description: ["Two 50 min Private Golf Lessons with the Trackman Simulator Bay or PuttView Putting System."],
           features: [
-            "10-minute Tour (Facility/Technology)",
-            "30-minute Practice Session",
-            "10-minute Discuss Membership/Lesson Options"
+            "Best one-on-one instruction in SoCal",
+            "Trackman Launch Monitor Simulator Bay",
+            "V1 Video Live View",
+            "V1 High speed Video Instant Payback",
+            "Voiceover Video Analysis",
+            "Take home instruction/training checklist",
           ],
-          buttonText: "Book Now",
-          buttonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC"
+          buttonText: "Let's do it",
+          buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1557012"
         },
         {
-          imageSrc: "https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          imageSrc: jackTrackman,
           imageAlt: "",
-          title: "“New Student” 60min Lesson/Assessment",
-          price: "$149",
-          description: ["Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
+          title: "Excel 3 Private Lesson Membership",
+          price: "$350/month",
+          description: ["Three 50 min Private Golf Lessons with Trackman Simulator / PuttView Putting System"],
+          features: [
+            "Best one-on-one instruction in SoCal",
+            "Trackman Launch Monitor Simulator Bay",
+            "V1 Video Live View",
+            "V1 High speed Video Instant Payback",
+            "Voiceover Video Analysis",
+            "Take home instruction/training checklist",
+            "PuttView + BCGC Coach = Read/Line/Speed dialed like a pro!",
+          ],
           buttonText: "Book Now",
-          buttonLink: "https://generalstudentbooking.as.me/BCGCGetStartedNSAandPracticeOptions"
-        }
+          buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1557010"
+        },
       ],
+      fullWidth: [
+            {
+                imageSrc: playerSwingingClub,
+                imageAlt: "",
+                title: "Achieve 4 Private Lesson Membership",
+                price: "$450/month",
+                description: ["4 Practice Sessions / Monthly Membership"],
+                features: [
+                    "Trackman Numbers, Training Games, Trackman Combine (Ball striking Test)",
+                    "V1 High Speed Video Live View",
+                    "V1 High speed Video Instant Payback",
+                    "All your favorite golf teaching aids"
+                ],
+                buttonText: "Get me started",
+                buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1624330"
+            }
+        ]
     }
   };
 
-  const items = [
-	'60 min <strong>MEMBER FOR A DAY PASS (DEMO)</strong>',
-	'60 min Assessment/Lesson with one of our Elite Coaches.'
-	];
+  import playerSwingingClub from "/src/assets/images/player-swinging-dark-bg.jpg";
+  import jackTrackman from "/src/assets/images/jack-hitting-trackman.jpg";
 ---
 
 <Layout title="BCG">
+  <Head
+    title="Your Page Title"
+    description="Your page description goes here."
+    keywords="keyword1, keyword2, keyword3"
+    author="Author Name"
+    image="https://yourwebsite.com/image.jpg"
+    url="https://yourwebsite.com/page-url"
+    additionalScripts={["https://example.com/script1.js", "https://example.com/script2.js"]}
+  />
 	<main>
 		<Hero {...heroProps} />
-        <Reviews />
-        <Callout
-            theme="blue"
-            heading="Not ready to select a Membership/Series yet… No Problem!"
-            description="It's easy to get started just select one of the following:"
-            items={items}
-            buttonText="I'm Ready To Get Started"
-            buttonLink="#"
-        />
-        
+    <Cards {...cardsData} />
+    <Reviews />
+    <Callout
+        theme="blue"
+        heading="Not ready to select a Membership/Series yet... No Problem!"
+        description="It's easy to get started just select one of the following:"
+        items={items}
+        buttonText="I'm Ready To Get Started"
+        buttonLink="https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1564441"
+    />
 	</main>
 </Layout>
 

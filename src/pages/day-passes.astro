@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import Head from "../components/Head.astro";
 import Cards, { Props } from '../components/Cards.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
@@ -12,7 +13,7 @@ const heroProps = {
 	primaryButtonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC",
     videoUrl: `${heroVideo}`,
 	ribbon: {
-	  header: "Already a Member?",
+	  header: "Already a Practice Member?",
 	  buttonLabel: "Book a Session",
 	  buttonLink: "https://generalstudentbooking.as.me/MemberPractice"
 	}
@@ -43,7 +44,7 @@ const cardsData: Props = {
         {
           imageSrc: jackTrackman,
           imageAlt: "",
-          title: "“New Student” 60min Lesson/Assessment",
+          title: "\"New Student\" 60min Lesson/Assessment",
           price: "$149",
           description: ["Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
           buttonText: "Book Now",
@@ -73,6 +74,15 @@ const cardsData: Props = {
 ---
 
 <Layout title="BCG">
+  <Head
+    title="Your Page Title"
+    description="Your page description goes here."
+    keywords="keyword1, keyword2, keyword3"
+    author="Author Name"
+    image="https://yourwebsite.com/image.jpg"
+    url="https://yourwebsite.com/page-url"
+    additionalScripts={["https://example.com/script1.js", "https://example.com/script2.js"]}
+  />
 	<main>
 		<Hero {...heroProps} />
     <Cards {...cardsData} />

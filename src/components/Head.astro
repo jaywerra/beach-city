@@ -1,0 +1,35 @@
+---
+import SEO, { Props as SEOProps } from './SEO.astro';
+
+interface Props extends SEOProps {
+  additionalScripts?: string[];
+}
+
+const { title, description, keywords, author, image, url, additionalScripts = [] } = Astro.props;
+---
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        author={author}
+        image={image}
+        url={url}
+    />
+    <!-- Libs -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://use.typekit.net/nze3msc.css">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-YTZHB2GG5K"></script>
+    <script type="text/partytown">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YTZHB2GG5K');
+    </script>
+</head>
