@@ -5,9 +5,11 @@ import Head from "../components/Head.astro";
 import Cards, { Props } from '../components/Cards.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
+import bayTwoImage from "/src/assets/images/bay-two-banner.jpg";
 
 const heroProps = {
 	quoteHeader: "Golf Lessons",
+  backgroundImageUrl: "/src/assets/images/bay-two-banner.jpg",
 	primaryButtonLabel: "Book a $49 Member for a Day Pass",
 	primaryButtonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC",
 	ribbon: {
@@ -19,6 +21,7 @@ const heroProps = {
 
 import playerSwingingClub from "/src/assets/images/player-swinging-dark-bg.jpg";
 import jackTrackman from "/src/assets/images/jack-hitting-trackman.jpg";
+import jackPuttviewSudent from "/src/assets/images/jack-puttview-student.jpg";
 
 const cardsData: Props = {
     header: {
@@ -64,7 +67,7 @@ const cardsData: Props = {
       ],
       fullWidth: [
             {
-                imageSrc: playerSwingingClub,
+                imageSrc: jackPuttviewSudent,
                 imageAlt: "",
                 title: "Achieve 4 Private Lesson Membership",
                 price: "$450/month",

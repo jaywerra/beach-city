@@ -10,14 +10,8 @@ const reviews: Review[] = [
   {
     stars: 5,
     logo: '/google-icon-logo.svg',
-    text: 'Jack is an outstanding golf instructor who I highly recommend. His coaching style is both encouraging and effective, tailored to individual needs. Jack\'s clear, step-by-step approach and deep knowledge of the game have significantly improved my skills over the past few months. He makes learning relaxed and fun, with a great personality and exceptional patience. Thanks to his guidance, I now approach each round with confidence and strategy stemming from the solid foundation we built for my swing. If you\'re looking to elevate your golf game in a supportive and enjoyable environment, Jack is the ideal choice.',
+    text: 'Jack is an outstanding golf instructor who I highly recommend. His coaching style is both encouraging and effective, tailored to individual needs. Jack\'s clear, step-by-step approach and deep knowledge of the game have significantly improved my skills over the past few months.',
     author: 'Matt A.'
-  },
-  {
-    stars: 5,
-    logo: '/google-icon-logo.svg',
-    text: 'At the age of 36, 16 months after playing my first round of golf, I broke 90 all thanks to Devan\'s incredible coaching and world class facility. A few months after picking up golf I tried lessons with several instructors in the LA area prior to booking my first lesson with Devan. The difference was night and day: the sincerity and lack of ego, the ability to *coach* rather than just go through the motions - within five minutes I knew that if I stuck to the process under Devan\'s approach I would be able to really enjoy the game in ways that many people never get to experience.',
-    author: 'Jacob H.'
   },
   {
     stars: 5,
@@ -28,14 +22,20 @@ const reviews: Review[] = [
   {
     stars: 5,
     logo: '/google-icon-logo.svg',
-    text: 'I\'ve been playing the sport for about 6 months now and finally broke 100 but on my way to break 90. I have to say it\'s all due to Jack\'s lessons. I have drastically improved my game and my etiquette on the course from his lessons. I can\'t begin to praise his coaching techniques and patience with me. He is an excellent instructor who makes every second of the lesson enjoyable! I would highly recommend him to anyone who is starting out or even a long-time golfer.',
-    author: 'Andrew C.'
+    text: 'Jack Henneberry is a fantastic coach who prioritizes long term development over quick swing fixes. He has a patient teaching style and does not overwhelm you with swing thoughts. Jack has taken time to understand my needs as a player and I know he genuinely cares about the progress that I am making in my game. I would HIGHLY recommend Jack for all skill levels of golfer looking to improve their game.',
+    author: 'Connor W.'
   },
   {
     stars: 5,
     logo: '/google-icon-logo.svg',
-    text: 'Jack Henneberry is a fantastic coach who prioritizes long term development over quick swing fixes. He has a patient teaching style and does not overwhelm you with swing thoughts. Jack has taken time to understand my needs as a player and I know he genuinely cares about the progress that I am making in my game. I would HIGHLY recommend Jack for all skill levels of golfer looking to improve their game.',
-    author: 'Connor W.'
+    text: 'At the age of 36, 16 months after playing my first round of golf, I broke 90 all thanks to Devan\'s incredible coaching and world class facility. A few months after picking up golf I tried lessons with several instructors in the LA area prior to booking my first lesson with Devan. The difference was night and day: the sincerity and lack of ego, the ability to *coach* rather than just go through the motions - within five minutes I knew that if I stuck to the process under Devan\'s approach I would be able to really enjoy the game in ways that many people never get to experience.',
+    author: 'Jacob H.'
+  },
+  {
+    stars: 5,
+    logo: '/google-icon-logo.svg',
+    text: 'I\'ve been playing the sport for about 6 months now and finally broke 100 but on my way to break 90. I have to say it\'s all due to Jack\'s lessons. I have drastically improved my game and my etiquette on the course from his lessons. I can\'t begin to praise his coaching techniques and patience with me. He is an excellent instructor who makes every second of the lesson enjoyable! I would highly recommend him to anyone who is starting out or even a long-time golfer.',
+    author: 'Andrew C.'
   },
   {
     stars: 5,
@@ -64,14 +64,8 @@ const reviews: Review[] = [
   {
     stars: 5,
     logo: '/google-icon-logo.svg',
-    text: 'Beach City Golf Club is a first-rate boutique golf and fitness training facility and boasts top notch coaches/instructors, including Devan Bonebrake, host of Golf Channel\'s “The Golf Fix” and one of Golf Digest\'s Best Young Teachers in America. Devan has worked with my 12-year old son PJ for the past nine months. His expert instruction has helped PJ develop a mechanically sound swing which has translated into successful tournament play and a handicap  index of 7.7. More importantly, Devan\'s teachings have inspired PJ to work hard while always finding fun in the game. If you are looking for a place to up your golf game, look no further than Beach City GC and Devan Bonebrake!',
+    text: 'Beach City Golf Club is a first-rate boutique golf and fitness training facility and boasts top notch coaches/instructors, including Devan Bonebrake, host of Golf Channel\'s \"The Golf Fix\" and one of Golf Digest\'s Best Young Teachers in America. Devan has worked with my 12-year old son PJ for the past nine months. His expert instruction has helped PJ develop a mechanically sound swing which has translated into successful tournament play and a handicap index of 7.7.',
     author: 'Paul'
-  },
-  {
-    stars: 5,
-    logo: '/google-icon-logo.svg',
-    text: 'Great facility with best in class technology to improve your game and most importantly, great people too! Jack has helped my game from the first lesson!',
-    author: 'Mark L.'
   },
 ];
 
@@ -121,49 +115,57 @@ for (let i = 0; i < reviews.length; i += 2) {
         padding: 80px 0;
         background: var(--grey100);
 
-        .reviews-items {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .reviews-item {
-            padding: 24px;
-            background: var(--white);
-            border-radius: 24px;
-
-            @media (min-width: 500px) {
-                padding: 32px;
-            }
-
-            &:last-child {
-                margin-left: 24px;
-            }
-
-            .reviews-item-header {
+        .reviews-ticker {
+            .splide__list {
                 display: flex;
-                align-items: center;
-                justify-content: space-between;
+                align-items: stretch; /* Ensure all slides have the same height */
             }
 
-            .reviews-item-stars {
-                max-width: 160px;
+            .reviews-items {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
 
-                svg {
-                    width: 100%;
+            .reviews-item {
+                padding: 24px;
+                background: var(--white);
+                border-radius: 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between; /* Distribute space evenly */
+
+                @media (min-width: 500px) {
+                    padding: 32px;
                 }
-            }
 
-            .reviews-item-logo {
-                max-width: 32px;
-            }
+                .reviews-item-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
 
-            p {
-                font-size: 16px;
-            }
+                .reviews-item-stars {
+                    max-width: 160px;
 
-            .reviews-item-author {
-                font-weight: 700;
+                    svg {
+                        width: 100%;
+                    }
+                }
+
+                .reviews-item-logo {
+                    max-width: 32px;
+                }
+
+                p {
+                    font-size: 16px;
+                    flex-grow: 1; /* Allow text to grow and take available space */
+                }
+
+                .reviews-item-author {
+                    font-weight: 700;
+                    margin-top: auto; /* Push author to the bottom */
+                }
             }
         }
     }
@@ -172,34 +174,35 @@ for (let i = 0; i < reviews.length; i += 2) {
 <script>
     import { Splide } from '@splidejs/splide';
     import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-    const reviewsTicker = document.querySelector('.reviews-ticker.splide');
 
-    if (reviewsTicker) {
-        new Splide(reviewsTicker, {
-            type: "loop",
-            arrows: false,
-            perPage: 1,
-            focus: "center",
-            mediaQuery: "min",
-            autoScroll: {
-                speed: 0.5,
-            },
-            gap: "24px",
-            pagination: false,
-            breakpoints: {
-                500: {
-                    perPage: 2,
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.reviews-ticker.splide').forEach(reviewsTicker => {
+            new Splide(reviewsTicker, {
+                type: "loop",
+                arrows: false,
+                perPage: 1,
+                focus: "center",
+                mediaQuery: "min",
+                autoScroll: {
+                    speed: 0.5,
                 },
-                820: {
-                    perPage: 3,
+                gap: "24px",
+                pagination: false,
+                breakpoints: {
+                    500: {
+                        perPage: 2,
+                    },
+                    820: {
+                        perPage: 3,
+                    },
+                    1400: {
+                        perPage: 4,
+                    },
+                    1800: {
+                        perPage: 5,
+                    },
                 },
-                1400: {
-                    perPage: 4,
-                },
-                1800: {
-                    perPage: 5,
-                },
-            },
-        }).mount({ AutoScroll });
-    }
+            }).mount({ AutoScroll });
+        });
+    });
 </script>
