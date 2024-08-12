@@ -92,7 +92,11 @@ const heroProps = {
   import trackmanOne from "/src/assets/images/TM4_backandfront1_dark.jpg";
   import trackmanTwo from "/src/assets/images/Player+swinging_VG_72+dpi.jpg";
   import trackmanThree from "/src/assets/images/infoscreen_mock.jpg";
+  import v1SportsOne from "/src/assets/images/v1-sports-camview.jpg";
+  import v1SportsTwo from "/src/assets/images/v1-sports-app.png";
   import puttviewOne from "/src/assets/images/puttview-aiming-Line.jpg";
+  import puttviewTwo from "/src/assets/images/Ball-Tracking.jpg";
+  import puttviewThree from "/src/assets/images/Indoor19.jpg";
 
   const trackmanSlides = [
     {
@@ -110,26 +114,43 @@ const heroProps = {
         body: "The TrackMan Golf app brings together information from all TrackMan products. You can take your stats from the simulator to the real-world course and practice ranges.",
         imageSrc: trackmanThree,
     },
-];
+  ];
 
-  // const trackmanSlider: Props = {
-    
-  //   imageSrc: puttviewOne,
-  // }
+  const v1Slides = [
+    {
+      heading: "The Premier Golf Pro Software",
+      body: "The powerful combination of live video capture, swing analysis, graphic overlay, and lesson creation and delivery tools makes V1 Pro an indispensable golf instruction aid.",
+      imageSrc: v1SportsTwo,
+    },
+    {
+      heading: "Live View of Your Swing",
+      body: "Become aware of your body's position before, during, and after your swing. The live view has overlays that help you develop an awareness of your body, so you can train with intention and develop the muscle memory for a consistent swing every time.",
+      imageSrc: v1SportsTwo,
+    },
+    {
+      heading: "Training Drills Directly in Front of You",
+      body: " V1 software doesn't just show you what you are doing when you swing. It also provides feedback and training drills to make the necessary adjustments to perform better. No guesswork, just results.",
+      imageSrc: v1SportsTwo,
+    },
+  ];
 
-  const v1Slider: Props = {
-    heading: "V1 Sports",
-    backgroundColor: "black",
-    reverseRow: true,
-    imageSrc: puttviewOne,
-    body: "The powerful combination of live video capture, swing analysis, graphic overlay, and lesson creation and delivery tools makes V1 Pro an indispensable golf instruction aid.",
-  }
-
-  const puttviewSlider: Props = {
-    heading: "Puttview",
-    imageSrc: puttviewOne,
-    body: "PuttView is the best augmented reality putting trainer tech in the world. It combines state-of-the-art tracking with live projections on 3D mapped greens."
-  }
+  const puttviewSlides = [
+    {
+      heading: "Master Your Short Game",
+      body: "PuttView is the best augmented reality putting trainer tech in the world. It combines state-of-the-art tracking with live projections on 3D mapped greens.",
+      imageSrc: puttviewOne,
+    },
+    {
+      heading: "Interactive Skill Development",
+      body: "PuttView will consider the topography of the green, calculate the setup line, project a swing guide, ball speed animation, and so much more.",
+      imageSrc: puttviewTwo,
+    },
+    {
+      heading: "Become Aware of Your Pitfalls",
+      body: "Are you rolling your putts Too hard/soft aka lacking speed control? Is your Putting posture hurting your putting stroke? Is your ball position at setup throwing your aim off? Do you just need help reading the green? There are many reasons that your Putting may not be up to par. PuttView can help you become aware of exactly what to work on to make every training session count as you practice with intention.",
+      imageSrc: puttviewThree,
+    }
+  ]
 ---
 
 <Layout title="BCG">
@@ -145,10 +166,8 @@ const heroProps = {
 	<main>
 		<Hero {...heroProps} />
     <Carousel slides={trackmanSlides} />
-    <!-- <Carousel {...v1Slider} /> -->
-    <!-- <Carousel {...puttviewSlider} /> -->
-    <!-- <Cards {...cardsData} /> -->
-    <!-- <Reviews /> -->
+    <Carousel slides={v1Slides} backgroundColor="black" reverseRow={true} />
+    <Carousel slides={puttviewSlides} />
     <Callout
         theme="blue"
         heading="Not ready to select a Membership/Series yet... No Problem!"
