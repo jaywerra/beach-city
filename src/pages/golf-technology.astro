@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Cards, { Props } from '../components/Cards.astro';
+import Carousel from "../components/Carousel.astro";
 import Head from "../components/Head.astro";
 import Callout from '../components/Callout.astro';
 import Reviews from "../components/Reviews.astro";
@@ -86,6 +87,49 @@ const heroProps = {
 
   import playerSwingingClub from "/src/assets/images/player-swinging-dark-bg.jpg";
   import jackTrackman from "/src/assets/images/jack-hitting-trackman.jpg";
+
+  // Slider Images
+  import trackmanOne from "/src/assets/images/TM4_backandfront1_dark.jpg";
+  import trackmanTwo from "/src/assets/images/Player+swinging_VG_72+dpi.jpg";
+  import trackmanThree from "/src/assets/images/infoscreen_mock.jpg";
+  import puttviewOne from "/src/assets/images/puttview-aiming-Line.jpg";
+
+  const trackmanSlides = [
+    {
+      heading: "TrackMan 4 Technology",
+        body: "The TrackMan 4 is the launch monitor of choice for the pros. It uses doppler radars combined with high-definition cameras to track your ball and swing before, during and after the point of impact and calculates where the ball would drop back down to the fairway. It produces incredibly accurate stats like club speed, attack angle, ball speed, spin rate, distance and much more.",
+        imageSrc: trackmanOne,
+    },
+    {
+      heading: "Expert Guidance and Training With Awareness",
+        body: "Coupled with the one-on-one coaching we provide at Beach City Golf Club and the Trackman state-of-the-art simulator tech, you get a shot-by-shot analysis and high-quality feedback. You can then use this feedback and work with your instructor to apply what you have learned in simulated, real-world conditions.",
+        imageSrc: trackmanTwo,
+    },
+    {
+      heading: "There's an App for That",
+        body: "The TrackMan Golf app brings together information from all TrackMan products. You can take your stats from the simulator to the real-world course and practice ranges.",
+        imageSrc: trackmanThree,
+    },
+];
+
+  // const trackmanSlider: Props = {
+    
+  //   imageSrc: puttviewOne,
+  // }
+
+  const v1Slider: Props = {
+    heading: "V1 Sports",
+    backgroundColor: "black",
+    reverseRow: true,
+    imageSrc: puttviewOne,
+    body: "The powerful combination of live video capture, swing analysis, graphic overlay, and lesson creation and delivery tools makes V1 Pro an indispensable golf instruction aid.",
+  }
+
+  const puttviewSlider: Props = {
+    heading: "Puttview",
+    imageSrc: puttviewOne,
+    body: "PuttView is the best augmented reality putting trainer tech in the world. It combines state-of-the-art tracking with live projections on 3D mapped greens."
+  }
 ---
 
 <Layout title="BCG">
@@ -100,8 +144,11 @@ const heroProps = {
   />
 	<main>
 		<Hero {...heroProps} />
-    <Cards {...cardsData} />
-    <Reviews />
+    <Carousel slides={trackmanSlides} />
+    <!-- <Carousel {...v1Slider} /> -->
+    <!-- <Carousel {...puttviewSlider} /> -->
+    <!-- <Cards {...cardsData} /> -->
+    <!-- <Reviews /> -->
     <Callout
         theme="blue"
         heading="Not ready to select a Membership/Series yet... No Problem!"
