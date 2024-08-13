@@ -71,7 +71,7 @@ const heroProps = {
                 <strong>Contact Us</strong>
             </p>
             <p>
-                If you have any questions about this Privacy Policy, please contact us.
+                If you have any questions about this Privacy Policy, <a href="/contact/">please contact us.</a>
             </p>
         </div>
     </div>
@@ -81,5 +81,14 @@ const heroProps = {
     .privacy {
         padding: 64px 0;
         background: var(--white);
+
+        .container {
+            max-width: 1200px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.35;
+        }
     }
 </style>

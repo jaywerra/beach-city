@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TextBlock from "../components/TextBlock.astro";
+import Head from "../components/Head.astro";
+import Hero from "../components/Hero.astro";
+const heroProps = {
+	quoteHeader: "Privacy Policy",
+    shortBanner: true,
+};
+---
+<Layout title="BCG">
+    <Head
+        title="Hermosa Beach Golf Lessons & Indoor Training"
+        description="Welcome to Beach City Golf Club. Trackman indoor golf simulator, PuttView & lessons in Hermosa Beach, CA. Schedule a demo today. Call (310) 439-9002"
+        keywords="golf, golf lessons, devon bonebrake, trackman, hermosa beach, south bay golf lessons"
+        author="Beach City Golf"
+        image="/src/assets/images/bay-two-banner.jpg"
+        url="https://www.beachcitygolfclub.com/"
+    />
+    <Hero {...heroProps} />
+    <div class="privacy">
+        <div class="container">
+            <p>
+                <strong>ADA Compliance</strong>
+            </p>
+            <p>
+                Accessibility Statement for www.beachcitygolfclub.com
+            </p>
+            <p>
+                Beach City Golf Club is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.
+            </p>
+            <p>
+                <strong>Conformance status</strong>
+            </p>
+            <p>
+                The Web Content Accessibility Guidelines (WCAG) defines guidelines for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. www.beachcitygolfclub.com is partially conformant with WCAG 2.1 level AA. Partially conformant means that some parts of the content do not fully conform to the accessibility standard. While WCAG is a set of guidelines rather than enforceable legislation, Beach City Golf Club uses every effort apply such recommendations to its web site to ensure equal access to all online users.
+            </p>
+            <p>
+                <strong>Feedback</strong>
+            </p>
+            <p>
+                We welcome your feedback on the accessibility of www.beachcitygolfclub.com. Please let us know if you encounter accessibility barriers on www.beachcitygolfclub.com:
+            </p>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .privacy {
+        padding: 64px 0;
+        background: var(--white);
+
+        .container {
+            max-width: 1200px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.35;
+        }
+    }
+</style>
