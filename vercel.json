@@ -1,0 +1,34 @@
+{
+    "redirects": [
+      {
+        "source": "/membership-instruction/",
+        "destination": "/memberships/",
+        "permanent": true
+      },
+      {
+        "source": "/new-student-assessment-demo/",
+        "destination": "/day-passes/",
+        "permanent": true
+      },
+      {
+        "source": "/contact-hours/",
+        "destination": "/contact/",
+        "permanent": true
+      },
+      {
+        "source": "/meet-your-instructors/",
+        "destination": "/about/",
+        "permanent": true
+      },
+      {
+        "source": "/premier-taylormade-club-fitting/",
+        "destination": "/club-fitting/",
+        "permanent": true
+      },
+      {
+        "source": "/trackman-technology/",
+        "destination": "/golf-technology/",
+        "permanent": true
+      }
+    ]
+  }
