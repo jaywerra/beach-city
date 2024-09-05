@@ -9,6 +9,15 @@ const { title, description, keywords, author, image, url, additionalScripts = []
 ---
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-YTZHB2GG5K"></script>
+    <script type="text/partytown">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YTZHB2GG5K');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -21,15 +30,6 @@ const { title, description, keywords, author, image, url, additionalScripts = []
         url={url}
     />
     <!-- Libs -->
-    <link rel="icon" type="image/svg+xml" href="/src/assets/images/favicon.png" />
+    <link rel="icon" type="image/png" href="/src/assets/images/favicon.png" />
     <link rel="stylesheet" href="https://use.typekit.net/nze3msc.css">
-    <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-YTZHB2GG5K"></script>
-    <script type="text/partytown">
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-    
-        gtag('config', 'G-YTZHB2GG5K');
-    </script>    
 </head>
