@@ -5,14 +5,14 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://beach-city.vercel.app/',
+	site: 'https://beachcitygolfclub.com/',
 	integrations: [
-		mdx(), 
+		mdx(),
 		sitemap(),
 		partytown({
 			config: {
-			  debug: true,
-			  forward: ["dataLayer.push"],
+				debug: true,
+				// You don't need to forward here because you are doing it in the global script.
 			},
 		}),
 	],

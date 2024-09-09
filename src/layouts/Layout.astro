@@ -8,12 +8,14 @@ interface Props {
 const { title, children } = Astro.props;
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ExitIntentModal from '../components/ExitIntentModal.astro';
 ---
 
 <!doctype html>
 <html lang="en">
 	{children}
 	<body>
+		<ExitIntentModal />
 		<Header />
 		<slot />
 		<Footer />

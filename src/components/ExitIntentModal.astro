@@ -1,0 +1,134 @@
+<div id="exit-intent-modal" class="modal hidden">
+    <div class="modal-content">
+        <span id="close-modal" class="close">
+            &times;
+        </span>
+        <h2>
+            Wait! Before You Go...
+        </h2>
+        <p>
+            Don't miss out on the chance to improve your golf game! Sign up now for our exclusive New Student Assessment Class and take the first step toward mastering your swing.
+        </p>
+        <a href="https://GeneralStudentBooking.as.me/BCGCGetStartedNSAandPracticeOptions" id="signup-button" class="button button--blue">
+            Book a New Student Assessment
+        </a>
+    </div>
+</div>
+
+<style>
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+
+        h2 {
+            margin: 0 0 12px;
+            font-family: "proxima-nova-extra-condensed", sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            text-transform: uppercase;
+
+            @media (min-width: 750px) {
+                font-size: 40px;
+            }
+        }
+
+        .button {
+            margin-top: 32px;
+        }
+    }
+
+    .modal.hidden {
+        display: none;
+    }
+
+    .modal-content {
+        position: relative;
+        padding: 40px 32px;
+        width: 90%;
+        background-color: var(--white);
+        border-radius: 5px;
+        text-align: center;
+
+        @media (min-width: 750px) {
+            width: auto;
+        }
+
+        p {
+            max-width: 80%;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 1.35;
+            text-wrap: balance;
+
+            @media (min-width: 750px) {
+                font-size: 24px;
+                max-width: 700px;
+            }
+        }
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("exit-intent-modal");
+    const closeModal = document.getElementById("close-modal");
+    const signupButton = document.getElementById("signup-button");
+
+    // Check if the modal has already been shown this session
+    if (!sessionStorage.getItem("exitIntentShown")) {
+        let modalShown = false;
+
+        function showExitIntentModal(event) {
+        if (event.clientY < 50 && !modalShown) {
+            modal.classList.remove("hidden");
+            modalShown = true;
+            sessionStorage.setItem("exitIntentShown", "true");
+        }
+        }
+
+        function hideModal() {
+        modal.classList.add("hidden");
+        }
+
+        function handleOutsideClick(event) {
+        if (event.target === modal) {
+            hideModal();
+        }
+        }
+
+        function handleEscapeKey(event) {
+        if (event.key === "Escape") {
+            hideModal();
+        }
+        }
+
+        function redirectToSignup() {
+        window.location.href = '/sign-up'; // Replace with the actual URL for the sign-up page
+        }
+
+        document.addEventListener("mouseout", showExitIntentModal);
+        closeModal.addEventListener("click", hideModal);
+        modal.addEventListener("click", handleOutsideClick);
+        document.addEventListener("keydown", handleEscapeKey);
+        signupButton.addEventListener("click", redirectToSignup);
+    }
+    });
+</script>
