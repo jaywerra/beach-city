@@ -44,7 +44,7 @@ const cardsData: Props = {
           imageSrc: newStudentImage,
           imageAlt: "",
           title: "\"New Student\" 60min Lesson/Assessment",
-          price: "$149",
+          price: "$175",
           description: ["Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
           buttonText: "Book Now",
           buttonLink: "https://generalstudentbooking.as.me/BCGCGetStartedNSAandPracticeOptions"
@@ -70,6 +70,7 @@ const cardsData: Props = {
 <Layout title="BCG">
 	<main>
 		<Hero {...heroProps} />
+    <div class="spacer"></div>
     <TextBlock { ...IntroBody } />
     <Coaches />
     <Cards {...cardsData} />
@@ -84,4 +85,11 @@ const cardsData: Props = {
 		text-align: center;
 		margin-bottom: 1em;
 	}
+
+  .spacer {
+    padding: 32px 0;
+    @media (min-width: 750px) {
+      padding: 0;
+    }
+  }
 </style>
