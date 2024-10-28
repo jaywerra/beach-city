@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import DevanImage from "../../src/assets/images/devan-bonebrake.jpg";
-import JackImage from "../../src/assets/images/jack-henneberry-beach-city-golf.jpg";
 import CalvinImage from "../../src/assets/images/calvin-maranville-pga-beach-city-golf.jpg";
+import DrewImage from "../../src/assets/images/drew-dufresne-beach-city-golf.jpg";
 export interface Coach {
     name: string;
     title: string;
@@ -38,11 +38,21 @@ const coachesData = {
             title: "Director Of Instruction",
             titleSuffix: "PGA",
             imageSrc: CalvinImage,
-            imageAlt: "Headshot of Calvin Maranville, PGA",
+            imageAlt: "Headshot of our Director Of Instruction, Calvin Maranville, PGA",
             buttonLabel: "Get Me Started",
             buttonURL: "https://generalstudentbooking.as.me/CalvinMaranvilleNSA",
             instagramLink: "https://www.instagram.com/calvinmaranville_pga/",
-            bio: "I am here to help you unlock your true potential on the green. From the moment I could hold a club, golf has been my passion. At the age of 12, I dedicated myself to this incredible sport, and since then, I have never looked back. With 9 years of competitive playing experience, including 2 years on the prestigious Golden State Tour, golf has shaped me into the teacher I am today. In 2012, I entered the golf industry, and in 2014, I discovered my true calling – teaching. Witnessing the transformation of my students, seeing their smiles, and knowing that I have contributed to their growth is the most rewarding feeling I have ever experienced. As a Class A Teaching Professional, I bring expertise, knowledge, and a deep love for the game to every lesson. But it\'s not just about golf for me; it\'s about the life skills this game teaches us. Discipline, focus, perseverance - these are just a few of the invaluable qualities you will develop through golf. And let\'s not forget the addictive feeling of hitting a pure golf shot. It\'s a sensation that never gets old, and it will keep you coming back for more. Golf is a journey, and I am here to guide you every step of the way. Together, we will explore the endless opportunities for improvement in your game. And along the way, you will forge lifelong friendships, just as I have. Golf has always been my Zen, my sanctuary, and I can\'t wait to share this incredible journey with you. So, whether you are a beginner looking to take your first swing or an experienced golfer seeking to refine your skills, join me at Beach City Golf Club, and let\'s embark on an unforgettable golfing adventure together!",
+            bio: "I am here to help you unlock your true potential on the green. From the moment I could hold a club, golf has been my passion. At the age of 12, I dedicated myself to this incredible sport, and since then, I have never looked back. With 9 years of competitive playing experience, including 2 years on the prestigious Golden State Tour, golf has shaped me into the teacher I am today. In 2012, I entered the golf industry, and in 2014, I discovered my true calling - teaching. Witnessing the transformation of my students, seeing their smiles, and knowing that I have contributed to their growth is the most rewarding feeling I have ever experienced. As a Class A Teaching Professional, I bring expertise, knowledge, and a deep love for the game to every lesson. But it\'s not just about golf for me; it\'s about the life skills this game teaches us. Discipline, focus, perseverance - these are just a few of the invaluable qualities you will develop through golf. And let\'s not forget the addictive feeling of hitting a pure golf shot. It\'s a sensation that never gets old, and it will keep you coming back for more. Golf is a journey, and I am here to guide you every step of the way. Together, we will explore the endless opportunities for improvement in your game. And along the way, you will forge lifelong friendships, just as I have. Golf has always been my Zen, my sanctuary, and I can\'t wait to share this incredible journey with you. So, whether you are a beginner looking to take your first swing or an experienced golfer seeking to refine your skills, join me at Beach City Golf Club, and let\'s embark on an unforgettable golfing adventure together!",
+        },
+        {
+            name: "Drew Dufresne",
+            title: "Instructer",
+            imageSrc: DrewImage,
+            imageAlt: "Headshot of Drew Dufresne",
+            buttonLabel: "Get Me Started",
+            buttonURL: "https://generalstudentbooking.as.me/CalvinMaranvilleNSA",
+            // instagramLink: "https://www.instagram.com/calvinmaranville_pga/",
+            bio: `My name is Drew Dufresne. I was born and raised in Southern California. I've been working in Golf for over 15 years as both a Player, Coach and Fitness Trainer. I played D1 College Golf at Fordham University in New York. My focus as a coach is to help students be comfortable and to create a clear and simple road map to holistic golf development.<br><br>I served as a Coach and Fitness Trainer at Urban Golf Performance for 5 years, accumulating over 10k one-on-one lessons and learned from some of the best minds in Golf Development. I had the opportunity to work alongside the likes of Collin Morikawa's former Swing Coach, Rick Sessinghaus and Morikawa's current Movement Team (Leo Rooney and Rian Chab). Additionally, I spent time training the UCLA Men's Golf Team and shadowing multiple PGA and LPGA players as they worked on-site with their movement specialists.<br><br>My programs and processes are suitable for golfers of any level. I employ a passionate and purposeful coaching style to enable students to better understand the “why” and the “how” of what they're doing. I also aim to inspire individuals to foster the internal drive that leads to success. As a team, we'll create a simple road map that focuses on clear, intentional and sustainable change!`,
         }
     ]
 };
@@ -100,7 +110,7 @@ const { heading, theme, coaches } = coachesData;
                   </ul>
                 </div>
                 <div class="coach-intro">
-                  <p>{coach.bio}</p>
+                    <div set:html={coach.bio}></div>
                 </div>
               </div>
             </div>
@@ -124,9 +134,7 @@ const { heading, theme, coaches } = coachesData;
                 </li>
               </ul>
             </div>
-            <div class="coach-intro">
-              <p>{coach.bio}</p>
-            </div>
+            <div class="coach-intro" set:html={coach.bio}></div>
           </div>
         ))}
       </div>
@@ -170,7 +178,7 @@ const { heading, theme, coaches } = coachesData;
             gap: 40px;
             grid-template-columns: 1fr;
 
-            @media (min-width: 750px) {
+            @media (min-width: 1150px) {
                 gap: 48px;
                 grid-template-columns: 1fr 1fr 1fr;
             }
@@ -182,7 +190,27 @@ const { heading, theme, coaches } = coachesData;
             overflow: hidden;
 
             img {
+                height: 100%;
+                max-height: 500px;
+                object-fit: cover;
+                object-position: top;
                 width: 100%;
+
+                @media (min-width: 900px) {
+                    max-height: 800px;
+                }
+
+                @media (min-width: 1150px) {
+                    max-height: 230px;
+                }
+
+                @media (min-width: 1400px) {
+                    max-height: 285px;
+                }
+
+                @media (min-width: 1630px) {
+                    max-height: 334px;
+                }
             }
         }
 
@@ -316,6 +344,7 @@ const { heading, theme, coaches } = coachesData;
                     width: 66.667%;
                 }
             }
+            .coach-intro,
             p {
                 font-size: 18px;
                 @media (min-width: 750px) {
