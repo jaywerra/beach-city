@@ -6,6 +6,7 @@ import Cards, { Props } from '../components/Cards.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
 import bayTwoImage from "/src/assets/images/bay-two-banner.jpg";
+import CalvinImage from "../../src/assets/images/calvin-maranville-pga-beach-city-golf.jpg";
 
 const heroProps = {
 	quoteHeader: "Golf Lessons",
@@ -81,7 +82,24 @@ const cardsData: Props = {
                 buttonText: "Get me started",
                 buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1592777"
             }
-        ]
+      ],
+      fullWidthTwo: [
+            {
+                imageSrc: CalvinImage,
+                imageAlt: "",
+                title: "4 (BCGC) Junior Lesson Package",
+                price: "$500/month",
+                description: ["4 Practice Sessions / Monthly Membership"],
+                features: [
+                    "Trackman Numbers, Training Games, Trackman Combine (Ball striking Test)",
+                    "V1 High Speed Video Live View",
+                    "V1 High speed Video Instant Payback",
+                    "All your favorite golf teaching aids"
+                ],
+                buttonText: "Get me started",
+                buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1840653"
+            }
+      ],
     }
   };
 

@@ -38,6 +38,7 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
       )}
     </div>
     <div class="cards-grid">
+      {/* Half-width cards */}
       <div class="cards-grid-row-half">
         {cards.halfWidth?.map(card => (
           <div class="card">
@@ -59,9 +60,6 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
                   ))}
                 </ul>
               )}
-              {card.description && 
-                card.description.map(paragraph => <p>{paragraph}</p>)
-              }
               {card.buttonText && card.buttonLink && (
                 <a href={card.buttonLink} class="button button--blue">
                   {card.buttonText}
@@ -71,6 +69,8 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
           </div>
         ))}
       </div>
+
+      {/* Full-width cards */}
       <div class="cards-grid-row-full">
         {cards.fullWidth?.map(card => (
           <div class="card card-fullwidth">
@@ -104,9 +104,45 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
           </div>
         ))}
       </div>
+
+      {/* Full-width-two cards (NEW) */}
+      <div class="cards-grid-row-full">
+        {cards.fullWidthTwo?.map(card => (
+          <div class="card card-fullwidth card-fullwidth-reverse">
+            {card.imageSrc && (
+              <div class="card-image">
+                <Image src={card.imageSrc} alt={card.imageAlt || 'Card image'} />
+              </div>
+            )}
+            <div class="card-copy">
+              {card.title && <h2>{card.title}</h2>}
+              {card.price && <p class="card-pill">{card.price}</p>}
+              {card.description && 
+                card.description.map(paragraph => <p>{paragraph}</p>)
+              }
+              {card.features && (
+                <>
+                  <p class="small-heading">What you get</p>
+                  <ul>
+                    {card.features.map(feature => (
+                      <li>{feature}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {card.buttonText && card.buttonLink && (
+                <a href={card.buttonLink} class="button button--blue">
+                  {card.buttonText}
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
 
 <style>
     .cards {
@@ -223,6 +259,10 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
                     gap: 64px;
                 }
 
+                &.card-fullwidth-reverse {
+                  margin: 32px 0;
+                  flex-direction: row;
+                }
                 .card-image,
                 .card-copy {
                     @media (min-width: 1150px) {
