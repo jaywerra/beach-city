@@ -146,14 +146,14 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
 
 <style>
     .cards {
-        padding: 160px 0 40px;
+        padding: 40px 0 40px;
         background: var(--white);
 
         @media (min-width: 750px) {
-            padding: 180px 16px 96px;
+            padding: 96px 16px 96px;
         }
 
-        @media (min-width: 900px) {
+        @media (min-width: 1100px) {
             padding: 96px 64px 96px;
         }
 
@@ -161,7 +161,7 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
             padding-top: 12px;
             padding-bottom: 0;
             .card.card-fullwidth {
-                @media (min-width: 750px) {
+                @media (min-width: 800px) {
                     flex-direction: row !important;
                 }
             }
@@ -170,7 +170,7 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
         .cards-header {
             margin-bottom: 32px;
             max-width: 960px;
-            padding-top: 40px;
+            /* padding-top: 40px; */
         }
 
         &.cards-dark {
@@ -231,7 +231,6 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
             gap: 24px;
 
             @media (min-width: 850px) {
-                gap: 40px;
                 grid-template-columns: 1fr 1fr;
             }
 
@@ -261,7 +260,9 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
 
                 &.card-fullwidth-reverse {
                   margin: 32px 0;
-                  flex-direction: row;
+                  @media (min-width: 1150px) {
+                    flex-direction: row;
+                  }
                 }
                 .card-image,
                 .card-copy {
@@ -273,11 +274,14 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
                 .card-image {
                     @media (min-width: 750px) {
                         height: 100%;
+                        aspect-ratio: auto;
                     }
 
                     img {
+                      @media (min-width: 1200px) {
                         height: 100%;
                         object-fit: cover;
+                      }
                     }
                 }
                 .small-heading {
@@ -297,6 +301,10 @@ const { theme, reverseLayout, header = {}, cards = { halfWidth: [], fullWidth: [
                 overflow: hidden;
                 aspect-ratio: 16 / 9;
                 object-position: center center;
+
+                @media (min-width: 750px) {
+                  /* aspect-ratio: auto; */
+                }
             }
             .card-copy {
                 padding: 20px 0 32px;
