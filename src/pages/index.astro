@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import Cards, { Props } from '../components/Cards.astro';
+import Cards from '../components/Cards.astro';
 import Slider from '../components/Slider.astro';
 import Coaches from '../components/Coaches.astro';
 import Callout from '../components/Callout.astro';
@@ -52,7 +52,7 @@ const cardsData: Props = {
         imageSrc: newStudentImage,
         imageAlt: "",
         title: "\"New Student\" 60min Lesson/Assessment",
-        price: "$200",
+        price: "$225",
         description: ["Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
         buttonText: "Book Now",
         buttonLink: "https://GeneralStudentBooking.as.me/JackHenneberryNSA"
@@ -152,6 +152,10 @@ const cardsDataLower: Props = {
 	'60 min Assessment/Lesson with one of our Elite Coaches.'
 	];
 
+	const coachesData = {
+		increasePadding: true,
+	}
+
 ---
 <Head
 	title="Beach City Golf Club | Indoor Golf Lessons Hermosa Beach, CA"
@@ -162,8 +166,9 @@ const cardsDataLower: Props = {
 	url="https://www.beachcitygolfclub.com/"
 />
 <Layout title="BCG">
-	<main>
+	<main class="home">
 		<Hero {...heroProps} />
+		<div class="spacer"></div>
 		<Coaches />
 		<Cards {...cardsData} />
 		<Slider {...sliderData1} />
@@ -189,4 +194,13 @@ const cardsDataLower: Props = {
 		text-align: center;
 		margin-bottom: 1em;
 	}
+
+	.spacer {
+		padding: 32px 0;
+
+		@media (min-width: 750px) {
+			padding: 0;
+		}
+	}
+	
 </style>
