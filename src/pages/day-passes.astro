@@ -43,40 +43,46 @@ const cardsData: Props = {
           buttonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC"
         },
         {
-          imageSrc: jackTrackman,
+          imageSrc: newStudentImage,
           imageAlt: "",
-          title: "\"New Student\" 60min Lesson/Assessment",
-          price: "$225",
-          description: ["Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
-          buttonText: "Book Now",
-          buttonLink: "https://GeneralStudentBooking.as.me/JackHenneberryNSA"
+          title: "BCGC Practice Membership",
+          price: "$200/month",
+          description: ["5 Practice Sessions / Monthly Membership"],
+          features: [
+              "Trackman Numbers, Training Games, Trackman Combine (Ball striking Test)",
+              "V1 High Speed Video Live View",
+              "V1 High speed Video Instant Payback",
+              "All your favorite golf teaching aids"
+          ],
+          buttonText: "Get me started",
+          buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1564441"
         }
       ],
-        fullWidth: [
-            {
-                imageSrc: newStudentImage,
-                imageAlt: "",
-                title: "BCGC Practice Membership",
-                price: "$200/month",
-                description: ["5 Practice Sessions / Monthly Membership"],
-                features: [
-                    "Trackman Numbers, Training Games, Trackman Combine (Ball striking Test)",
-                    "V1 High Speed Video Live View",
-                    "V1 High speed Video Instant Payback",
-                    "All your favorite golf teaching aids"
-                ],
-                buttonText: "Get me started",
-                buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1564441"
-            }
-        ]
+        // fullWidth: [
+        //     {
+        //         imageSrc: newStudentImage,
+        //         imageAlt: "",
+        //         title: "BCGC Practice Membership",
+        //         price: "$200/month",
+        //         description: ["5 Practice Sessions / Monthly Membership"],
+        //         features: [
+        //             "Trackman Numbers, Training Games, Trackman Combine (Ball striking Test)",
+        //             "V1 High Speed Video Live View",
+        //             "V1 High speed Video Instant Payback",
+        //             "All your favorite golf teaching aids"
+        //         ],
+        //         buttonText: "Get me started",
+        //         buttonLink: "https://app.acuityscheduling.com/catalog.php?owner=21968379&action=addCart&clear=1&id=1564441"
+        //     }
+        // ]
     }
   };
 
 ---
 <Head
-  title="New Student Assessment / Member for a Day Pass"
+  title="South Bay Golf Practice Studio / Indoor Driving Range"
   description="Get a tour of the facility and try out all of the amazing golf technologies we have put together for you!"
-  keywords="golf, golf lessons, devon bonebrake, trackman, hermosa beach, south bay golf lessons"
+  keywords="golf, golf lessons, driving range, indoor golf, devon bonebrake, trackman, hermosa beach golf, redondo beach golf, manhattan beach golf, south bay golf lessons"
   author="Beach City Golf"
   image="/src/assets/images/bay-two-banner.jpg"
   url="https://www.beachcitygolfclub.com/"
@@ -85,7 +91,6 @@ const cardsData: Props = {
 	<main>
 		<Hero {...heroProps} />
     <Cards {...cardsData} />
-    <SellingPoints />
     <Coaches />
 	</main>
 </Layout>
