@@ -19,8 +19,8 @@ import JackPuttview from "../../src/assets/images/jack-puttview-student.jpg";
 const heroProps = {
 	quoteHeader: "\"Perfection is not attainable, but if we chase perfection we can catch excellence.\"",
 	quoteAuthor: "- Vince Lombardi",
-	// primaryButtonLabel: "Book a New Student Assessment",
-	// primaryButtonLink: "https://GeneralStudentBooking.as.me/JackHenneberryNSA",
+	primaryButtonLabel: "Book a New Student Assessment",
+	primaryButtonLink: "https://GeneralStudentBooking.as.me/JackHenneberryNSA",
 	videoUrl: `${heroVideo}`,
 	ribbon: {
 	  header: "Already a Practice Member?",
@@ -34,20 +34,31 @@ const cardsData: Props = {
     summary: "You have three great options and three great instructors to choose from.",
   },
   cards: {
-    halfWidth: [
-      {
-        imageSrc: memberForADayImage,
-        imageAlt: "",
-        title: "\"Member For A Day Pass\" Demo",
-        price: "$49",
-        features: [
-          "10-minute Tour (Facility/Technology)",
-          "30-minute Practice Session",
-          "10-minute Discuss Membership/Lesson Options"
-        ],
-        buttonText: "Book Now",
-        buttonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC"
-      },
+    // halfWidth: [
+    //   {
+    //     imageSrc: memberForADayImage,
+    //     imageAlt: "",
+    //     title: "\"Member For A Day Pass\" Demo",
+    //     price: "$49",
+    //     features: [
+    //       "10-minute Tour (Facility/Technology)",
+    //       "30-minute Practice Session",
+    //       "10-minute Discuss Membership/Lesson Options"
+    //     ],
+    //     buttonText: "Book Now",
+    //     buttonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC"
+    //   },
+    //   {
+    //     imageSrc: newStudentImage,
+    //     imageAlt: "",
+    //     title: "\"New Student\" 60min Lesson/Assessment",
+    //     price: "$225",
+    //     description: ["Prefer to have a professional guide on your golf journey? Our highly Trained Expert Coaches understand your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
+    //     buttonText: "Book Now",
+    //     buttonLink: "https://GeneralStudentBooking.as.me/JackHenneberryNSA"
+    //   }
+    // ],
+	fullWidth: [
       {
         imageSrc: newStudentImage,
         imageAlt: "",
@@ -58,24 +69,24 @@ const cardsData: Props = {
         buttonLink: "https://GeneralStudentBooking.as.me/JackHenneberryNSA"
       }
     ],
-    fullWidth: [
-      {
-		imageSrc: DevanImage,
-        imageAlt: "",
-        title: "Lesson with Devan Bonebrake Host of GolfFix on GolfPass",
-        price: "$300",
-        description: ["Prefer to have a professional guide on your golf journey? Coach Devan understands your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
-        features: [
-          "Best One on One Instruction in SoCal",
-          "Full Access: Trackman Launch Monitor/PuttView Putting System",
-          "Voiceover video Analysis",
-          "Take home instruction/training",
-          "60 Min Session"
-        ],
-        buttonText: "Book With Devan",
-        buttonLink: "https://generalstudentbooking.as.me/DevanBonebrakeLesson"
-      }
-    ]
+    // fullWidth: [
+    //   {
+	// 	imageSrc: DevanImage,
+    //     imageAlt: "",
+    //     title: "Lesson with Devan Bonebrake Host of GolfFix on GolfPass",
+    //     price: "$300",
+    //     description: ["Prefer to have a professional guide on your golf journey? Coach Devan understands your swing pattern and will share simple and effective golf instruction for consistent lasting improvement!"],
+    //     features: [
+    //       "Best One on One Instruction in SoCal",
+    //       "Full Access: Trackman Launch Monitor/PuttView Putting System",
+    //       "Voiceover video Analysis",
+    //       "Take home instruction/training",
+    //       "60 Min Session"
+    //     ],
+    //     buttonText: "Book With Devan",
+    //     buttonLink: "https://generalstudentbooking.as.me/DevanBonebrakeLesson"
+    //   }
+    // ]
   }
 };
 
@@ -170,17 +181,17 @@ const cardsDataLower: Props = {
 		<Hero {...heroProps} />
 		<div class="spacer"></div>
 		<Coaches />
-		<!-- <Cards {...cardsData} /> -->
+		<Cards {...cardsData} />
 		<Slider {...sliderData1} />
 		<Cards {...cardsDataLower2} />
-		<!-- <Callout
+		<Callout
 			theme="blue"
 			heading="Not ready to select a Membership/Series yet... No Problem!"
 			description="It's easy to get started just select one of the following:"
 			items={items}
 			buttonText="I'm Ready To Get Started"
 			buttonLink="https://GeneralStudentBooking.as.me/JackHenneberryNSA"
-		/> -->
+		/>
 		<Reviews />
 		<!-- <SellingPoints /> -->
 	</main>

@@ -22,24 +22,24 @@ import memberForADayImage  from "../../src/assets/images/member-for-a-day.jpg";
 import golfCourseImage from "/src/assets/images/golf-course-drone.jpg";
 
 const cardsData: Props = {
-    header: {
-      title: "The Easiest Way To Get Started Now At The Beach City Golf Club Is Simply Select One Of The Following Options:",
-    },
+    // header: {
+    //   title: "The Easiest Way To Get Started Now At The Beach City Golf Club Is Simply Select One Of The Following Options:",
+    // },
     cards: {
-      halfWidth: [
-        {
-          imageSrc: memberForADayImage,
-          imageAlt: "",
-          title: "\"Member For A Day Pass\" Demo",
-          price: "$49",
-          features: [
-            "10-minute Tour (Facility/Technology)",
-            "30-minute Practice Session",
-            "10-minute Discuss Membership/Lesson Options"
-          ],
-          buttonText: "Book Now",
-          buttonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC"
-        },
+      fullWidth: [
+        // {
+        //   imageSrc: memberForADayImage,
+        //   imageAlt: "",
+        //   title: "\"Member For A Day Pass\" Demo",
+        //   price: "$49",
+        //   features: [
+        //     "10-minute Tour (Facility/Technology)",
+        //     "30-minute Practice Session",
+        //     "10-minute Discuss Membership/Lesson Options"
+        //   ],
+        //   buttonText: "Book Now",
+        //   buttonLink: "https://generalstudentbooking.as.me/DemoDayPassBCGC"
+        // },
         {
           imageSrc: newStudentImage,
           imageAlt: "",
@@ -73,7 +73,7 @@ const cardsData: Props = {
     <div class="spacer"></div>
     <TextBlock { ...IntroBody } />
     <Coaches />
-    <!-- <Cards {...cardsData} /> -->
+    <Cards {...cardsData} />
 	</main>
 </Layout>
 
